@@ -1,0 +1,9 @@
+{
+  "name": "Signify Workforce",
+  "short_name": "Signify Workforce",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#075BFF",
+  "orientation": "portrait"
+}
