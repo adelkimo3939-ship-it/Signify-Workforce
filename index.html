@@ -1,79 +1,140 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#075BFF">
-<title>Signify Workforce</title><style>
+<title>Signify Workforce</title>
+
+<style>
 *{box-sizing:border-box;font-family:Arial,Tahoma,sans-serif}
 body{margin:0;background:#f4f7fb;color:#172033}
 .hidden{display:none!important}
 button,input,select,textarea{font-family:inherit}
 button{cursor:pointer}
-.login-page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(135deg,#075BFF,#00358f)}
-.login-box{width:100%;max-width:430px;background:#fff;border-radius:25px;padding:30px 22px;box-shadow:0 15px 45px rgba(0,0,0,.25)}
-.logo{text-align:center;font-size:30px;font-weight:bold;color:#075BFF;margin-bottom:5px}
-.subtitle{text-align:center;color:#777;margin-bottom:25px}
+
+.login-page{
+min-height:100vh;display:flex;align-items:center;justify-content:center;
+padding:20px;background:linear-gradient(135deg,#075BFF,#00358f)
+}
+.login-box{
+width:100%;max-width:430px;background:#fff;border-radius:25px;
+padding:30px 22px;box-shadow:0 15px 45px rgba(0,0,0,.25)
+}
+.logo{text-align:center;font-size:30px;font-weight:bold;color:#075BFF}
+.subtitle{text-align:center;color:#777;margin:7px 0 25px}
+
 label{display:block;margin:12px 0 7px;font-weight:bold}
-input,select,textarea{width:100%;border:1px solid #d7dce5;border-radius:12px;padding:12px;font-size:16px;background:#fff}
+input,select,textarea{
+width:100%;border:1px solid #d7dce5;border-radius:12px;
+padding:13px;font-size:16px;background:#fff
+}
 textarea{min-height:100px;resize:vertical}
-.primary,.secondary,.danger,.success{border-radius:12px;padding:12px 15px;font-size:16px;border:0}
-.primary{width:100%;background:#075BFF;color:#fff;margin-top:15px}
-.secondary{background:#fff;color:#075BFF;border:1px solid #075BFF}
-.danger{background:#e53935;color:#fff}
-.success{background:#16a05d;color:#fff}
-.warning{background:#f5b400;color:#fff;border:0}
-.app{min-height:100vh}
-.topbar{background:#075BFF;color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+
+button{
+border:0;border-radius:12px;padding:11px 15px;font-size:15px
+}
+.primary{
+width:100%;background:#075BFF;color:#fff;padding:14px;
+font-size:17px;margin-top:18px
+}
+.secondary{
+width:100%;background:#fff;color:#075BFF;
+border:1px solid #075BFF;margin-top:10px
+}
+.success{background:#16a05d!important;color:#fff!important}
+.danger{background:#e53935!important;color:#fff!important}
+.warning{background:#f5b400!important;color:#fff!important}
+
+.topbar{
+background:#075BFF;color:#fff;padding:17px 20px;
+display:flex;justify-content:space-between;align-items:center
+}
 .topbar h2{margin:0;font-size:21px}
-.logout{background:#fff;color:#075BFF;border:0;padding:9px 14px;border-radius:10px}
+.logout{background:#fff;color:#075BFF}
+
 .container{max-width:1150px;margin:auto;padding:18px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.card{background:#fff;border-radius:18px;padding:18px;box-shadow:0 3px 14px rgba(0,0,0,.06)}
+
+.cards{
+display:grid;grid-template-columns:repeat(4,1fr);gap:12px
+}
+.card{
+background:#fff;border-radius:18px;padding:18px;
+box-shadow:0 3px 14px rgba(0,0,0,.06)
+}
 .card-title{color:#697386;font-size:14px}
-.number{font-size:29px;font-weight:bold;margin-top:8px;color:#075BFF}
+.number{font-size:30px;font-weight:bold;margin-top:8px;color:#075BFF}
+
+.panel{
+background:#fff;padding:18px;border-radius:18px;
+box-shadow:0 3px 14px rgba(0,0,0,.06);margin-bottom:15px
+}
 .section{margin-top:20px}
-.panel{background:#fff;padding:18px;border-radius:18px;box-shadow:0 3px 14px rgba(0,0,0,.06);margin-bottom:15px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .menu{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.menu button{padding:15px;border:0;border-radius:14px;background:#fff;color:#075BFF;font-size:16px;box-shadow:0 3px 12px rgba(0,0,0,.07)}
-table{width:100%;border-collapse:collapse;margin-top:12px;background:#fff;overflow:hidden}
-th,td{border-bottom:1px solid #eee;padding:10px 7px;text-align:center;font-size:14px}
+.menu button{
+background:#fff;color:#075BFF;padding:15px;
+box-shadow:0 3px 12px rgba(0,0,0,.07)
+}
+
+table{
+width:100%;border-collapse:collapse;margin-top:12px;background:#fff
+}
+th,td{
+border-bottom:1px solid #eee;padding:10px 7px;
+text-align:center;font-size:14px
+}
 th{background:#f0f4fa}
-.notice{background:#fff6d8;border-right:5px solid #f5b400;padding:12px;border-radius:10px;margin-bottom:10px}
+
+.notice{
+background:#fff6d8;border-right:5px solid #f5b400;
+padding:12px;border-radius:10px;margin-bottom:10px
+}
 .empty{text-align:center;color:#777;padding:20px}
-.kpi-box{background:linear-gradient(135deg,#075BFF,#00358f);color:#fff;border-radius:22px;padding:22px;text-align:center;margin-bottom:15px}
-.kpi-number{font-size:58px;font-weight:bold}
-.kpi-title{font-size:17px;opacity:.9}
-.badge{display:inline-block;padding:6px 10px;border-radius:20px;font-size:13px}
-.badge-green{background:#dff7ea;color:#087c45}
-.badge-red{background:#ffe1e1;color:#b30000}
-.badge-yellow{background:#fff2c2;color:#805d00}
-.small-btn{padding:7px 10px;border:0;border-radius:8px;font-size:13px}
-.employee-kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.kpi-mini{background:#fff;border-radius:15px;padding:15px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.06)}
-.kpi-mini b{font-size:25px;color:#075BFF;display:block;margin-top:5px}
-.search-box{margin-bottom:12px}
-hr{border:0;border-top:1px solid #eee;margin:18px 0}
+
+.kpi-box{
+background:linear-gradient(135deg,#075BFF,#00358f);
+color:#fff;border-radius:22px;padding:22px;
+text-align:center;margin-bottom:15px
+}
+.kpi-number{font-size:55px;font-weight:bold}
+
+.badge{
+display:inline-block;padding:5px 9px;border-radius:8px;
+font-size:12px;background:#eee
+}
+.badge-green{background:#d9f7e7;color:#08783f}
+.badge-red{background:#ffe0e0;color:#a40000}
+.badge-yellow{background:#fff0bd;color:#8a6200}
+
+.small-btn{padding:7px 10px;font-size:13px}
 
 @media(max-width:700px){
 .cards{grid-template-columns:repeat(2,1fr)}
-.grid{grid-template-columns:1fr}
-.menu{grid-template-columns:1fr}
-.employee-kpi-grid{grid-template-columns:1fr}
+.grid,.menu{grid-template-columns:1fr}
 .container{padding:12px}
 table{display:block;overflow-x:auto;white-space:nowrap}
-th,td{padding:8px 5px}
-.kpi-number{font-size:50px}
 }
-</style></head><body><!-- ================= LOGIN ================= --><div id="loginPage" class="login-page">
-<div class="login-box"><div class="logo">Signify Workforce</div>
-<div class="subtitle">نظام إدارة الموظفين والحضور والـ KPI</div><label>نوع المستخدم</label>
-<select id="loginType" onchange="updateLoginLabels()">
+</style>
+</head>
 
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage" class="login-page">
+<div class="login-box">
+
+<div class="logo">Signify Workforce</div>
+<div class="subtitle">نظام إدارة الموظفين والحضور والـ KPI</div>
+
+<label>نوع المستخدم</label>
+<select id="loginType" onchange="updateLoginLabels()">
 <option value="employee">موظف</option>
 <option value="admin">مشرف</option>
-<option value="viewer">قارئ</option>
-</select><label id="codeLabel">كود الموظف</label>
+<option value="viewer">قراءة فقط</option>
+</select>
+
+<label id="codeLabel">كود الموظف</label>
 <input id="loginCode" type="text" placeholder="اكتب الكود">
 
 <label>كلمة المرور</label>
@@ -81,74 +142,129 @@ th,td{padding:8px 5px}
 
 <button class="primary" onclick="login()">تسجيل الدخول</button>
 
-<div id="loginMessage" style="color:#e53935;text-align:center;margin-top:12px"></div></div>
-</div><!-- ================= APP ================= --><div id="app" class="app hidden"><div class="topbar">
+<div id="loginMessage" style="color:#e53935;text-align:center;margin-top:12px"></div>
+
+</div>
+</div>
+
+
+<!-- APP -->
+<div id="app" class="hidden">
+
+<div class="topbar">
 <div>
 <h2>Signify Workforce</h2>
 <div id="welcome"></div>
 </div>
 <button class="logout" onclick="logout()">خروج</button>
-</div><div class="container"><!-- ================= ADMIN ================= --><div id="adminPage" class="hidden"><div class="cards"><div class="card">
+</div>
+
+<div class="container">
+
+<!-- ADMIN -->
+<div id="adminPage" class="hidden">
+
+<div class="cards">
+<div class="card">
 <div class="card-title">الموظفين</div>
 <div class="number" id="totalEmployees">0</div>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="card-title">الحضور اليوم</div>
 <div class="number" id="presentCount">0</div>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="card-title">الغياب اليوم</div>
 <div class="number" id="absentCount">0</div>
-</div><div class="card">
+</div>
+
+<div class="card">
 <div class="card-title">التأخير اليوم</div>
 <div class="number" id="lateCount">0</div>
-</div></div><div class="section">
-<div class="menu"><button onclick="showAdminSection('attendance')">🕘 الحضور والانصراف</button>
+</div>
+</div>
+
+<div class="section menu">
+
+<button onclick="showAdminSection('attendance')">🕘 الحضور والانصراف</button>
 <button onclick="showAdminSection('employees')">👥 الموظفين</button>
 <button onclick="showAdminSection('kpi')">📊 KPI</button>
 <button onclick="showAdminSection('penalties')">⚠️ التأخيرات والجزاءات</button>
 <button onclick="showAdminSection('leaveRequests')">📝 طلبات الإجازة</button>
 <button onclick="showAdminSection('kaizen')">💡 Kaizen</button>
-<button onclick="showAdminSection('viewEmployeeAttendance')">📅 حضور الموظف الشهري</button>
-<button onclick="showAdminSection('viewers')">👁️ القراء</button>
 <button onclick="showAdminSection('password')">🔐 تغيير باسورد المشرف</button>
 
 </div>
-</div><div id="adminContent" class="section"></div>
-</div><!-- ================= VIEWER ================= --><div id="viewerPage" class="hidden"><div class="panel">
+
+<div id="adminContent" class="section"></div>
+</div>
+
+
+<!-- VIEWER -->
+<div id="viewerPage" class="hidden">
+
+<div class="panel">
 <h3>👁️ لوحة القراءة فقط</h3>
-<p>يمكنك الاطلاع على الحضور و KPI والتأخيرات والجزاءات وطلبات الإجازة وKaizen بدون تعديل.</p>
-</div><div id="viewerContent"></div></div><!-- ================= EMPLOYEE ================= --><div id="employeePage" class="hidden"><div class="panel"><h3 id="employeeName"></h3>
-<div id="employeeNotifications"></div></div><div id="employeeHomeKPI"></div><div class="menu"><button onclick="employeeAttendance()">🕘 حالة حضوري</button>
+<p>يمكنك الاطلاع على الحضور و KPI والتأخيرات والجزاءات وطلبات الإجازة وKaizen.</p>
+</div>
+
+<div class="menu">
+<button onclick="viewerAttendance()">🕘 الحضور</button>
+<button onclick="viewerKPI()">📊 KPI</button>
+<button onclick="viewerPenalties()">⚠️ الجزاءات</button>
+<button onclick="viewerLeaves()">📝 الإجازات</button>
+<button onclick="viewerKaizen()">💡 Kaizen</button>
+</div>
+
+<div id="viewerContent" class="section"></div>
+</div>
+
+
+<!-- EMPLOYEE -->
+<div id="employeePage" class="hidden">
+
+<div class="panel">
+<h3 id="employeeName"></h3>
+<div id="employeeNotifications"></div>
+</div>
+
+<div id="employeeHomeKPI"></div>
+
+<div class="menu">
+<button onclick="employeeAttendance()">🕘 حضوري الشهري</button>
 <button onclick="employeeKPI()">📊 KPI الخاص بي</button>
 <button onclick="employeeLeave()">📝 طلب إجازة</button>
 <button onclick="employeeKaizen()">💡 Kaizen</button>
-<button onclick="employeePenalties()">⚠️ التأخيرات والجزاءات</button>
 <button onclick="employeePassword()">🔐 تغيير الباسورد</button>
+</div>
 
-</div><div id="employeeContent" class="section"></div></div></div>
-</div><script>
+<div id="employeeContent" class="section"></div>
+</div>
 
-/* =========================================================
+</div>
+</div>
+
+
+<script>
+
+/* =========================
    DATA
-========================================================= */
+========================= */
 
-let employees = JSON.parse(localStorage.getItem("sw_employees")) || [];
-let attendance = JSON.parse(localStorage.getItem("sw_attendance")) || [];
-let penalties = JSON.parse(localStorage.getItem("sw_penalties")) || [];
-let leaves = JSON.parse(localStorage.getItem("sw_leaves")) || [];
-let kaizens = JSON.parse(localStorage.getItem("sw_kaizens")) || [];
-let viewers = JSON.parse(localStorage.getItem("sw_viewers")) || [];
+let employees = JSON.parse(localStorage.getItem("sw_employees") || "[]");
+let attendance = JSON.parse(localStorage.getItem("sw_attendance") || "[]");
+let penalties = JSON.parse(localStorage.getItem("sw_penalties") || "[]");
+let leaves = JSON.parse(localStorage.getItem("sw_leaves") || "[]");
+let kaizens = JSON.parse(localStorage.getItem("sw_kaizens") || "[]");
 
 let currentUser = null;
 
-
-/* =========================================================
-   ADMIN DEFAULT
-========================================================= */
-
-let admin = JSON.parse(localStorage.getItem("sw_admin"));
+let admin = JSON.parse(localStorage.getItem("sw_admin") || "null");
 
 if(!admin){
-admin = {
+admin={
 code:"admin",
 password:"1234",
 name:"مشرف النظام"
@@ -157,9 +273,9 @@ localStorage.setItem("sw_admin",JSON.stringify(admin));
 }
 
 
-/* =========================================================
-   HELPERS
-========================================================= */
+/* =========================
+   SAVE
+========================= */
 
 function saveData(){
 
@@ -168,37 +284,26 @@ localStorage.setItem("sw_attendance",JSON.stringify(attendance));
 localStorage.setItem("sw_penalties",JSON.stringify(penalties));
 localStorage.setItem("sw_leaves",JSON.stringify(leaves));
 localStorage.setItem("sw_kaizens",JSON.stringify(kaizens));
-localStorage.setItem("sw_viewers",JSON.stringify(viewers));
 
 }
+
+
+/* =========================
+   DATE
+========================= */
 
 function today(){
 return new Date().toISOString().slice(0,10);
 }
 
-function employeeName(code){
-const e = employees.find(x=>x.code===code);
-return e ? e.name : code;
-}
-
-function employeeJob(code){
-const e = employees.find(x=>x.code===code);
-return e ? (e.job || "-") : "-";
-}
-
-function escapeHTML(value){
-return String(value ?? "")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+function monthNow(){
+return new Date().toISOString().slice(0,7);
 }
 
 
-/* =========================================================
+/* =========================
    LOGIN
-========================================================= */
+========================= */
 
 function updateLoginLabels(){
 
@@ -206,19 +311,17 @@ const type=document.getElementById("loginType").value;
 const label=document.getElementById("codeLabel");
 const input=document.getElementById("loginCode");
 
-if(type==="employee"){
-label.innerText="كود الموظف";
-input.placeholder="اكتب كود الموظف";
-}
-
 if(type==="admin"){
 label.innerText="كود المشرف";
-input.placeholder="اكتب كود المشرف";
+input.placeholder="admin";
 }
-
-if(type==="viewer"){
+else if(type==="viewer"){
 label.innerText="كود القارئ";
-input.placeholder="اكتب كود القارئ";
+input.placeholder="viewer";
+}
+else{
+label.innerText="كود الموظف";
+input.placeholder="اكتب الكود";
 }
 
 }
@@ -229,12 +332,12 @@ function login(){
 const type=document.getElementById("loginType").value;
 const code=document.getElementById("loginCode").value.trim();
 const password=document.getElementById("loginPassword").value;
-const message=document.getElementById("loginMessage");
+const msg=document.getElementById("loginMessage");
 
-message.innerText="";
+msg.innerText="";
 
 if(!code || !password){
-message.innerText="اكتب الكود وكلمة المرور";
+msg.innerText="اكتب الكود وكلمة المرور";
 return;
 }
 
@@ -256,31 +359,8 @@ return;
 
 }
 
-message.innerText="كود المشرف أو كلمة المرور غير صحيحة";
+msg.innerText="بيانات المشرف غير صحيحة";
 return;
-}
-
-
-/* EMPLOYEE */
-
-if(type==="employee"){
-
-const e=employees.find(x=>x.code===code && x.password===password);
-
-if(!e){
-message.innerText="كود الموظف أو كلمة المرور غير صحيحة";
-return;
-}
-
-currentUser={
-type:"employee",
-code:e.code,
-name:e.name
-};
-
-openApp();
-return;
-
 }
 
 
@@ -288,17 +368,12 @@ return;
 
 if(type==="viewer"){
 
-const v=viewers.find(x=>x.code===code && x.password===password);
-
-if(!v){
-message.innerText="بيانات القارئ غير صحيحة";
-return;
-}
+if(code==="viewer" && password==="1234"){
 
 currentUser={
 type:"viewer",
-code:v.code,
-name:v.name
+code:"viewer",
+name:"قارئ البيانات"
 };
 
 openApp();
@@ -306,28 +381,52 @@ return;
 
 }
 
+msg.innerText="بيانات القارئ غير صحيحة";
+return;
 }
 
 
-/* =========================================================
+/* EMPLOYEE */
+
+const employee=employees.find(e=>
+String(e.code)===String(code) &&
+String(e.password)===String(password)
+);
+
+if(!employee){
+msg.innerText="كود الموظف أو كلمة المرور غير صحيحة";
+return;
+}
+
+currentUser={
+type:"employee",
+code:employee.code,
+name:employee.name
+};
+
+openApp();
+
+}
+
+
+/* =========================
    OPEN APP
-========================================================= */
+========================= */
 
 function openApp(){
 
 document.getElementById("loginPage").classList.add("hidden");
 document.getElementById("app").classList.remove("hidden");
 
-document.getElementById("welcome").innerText=currentUser.name;
-
 document.getElementById("adminPage").classList.add("hidden");
 document.getElementById("employeePage").classList.add("hidden");
 document.getElementById("viewerPage").classList.add("hidden");
 
+document.getElementById("welcome").innerText=currentUser.name;
+
 if(currentUser.type==="admin"){
 
 document.getElementById("adminPage").classList.remove("hidden");
-
 updateDashboard();
 showAdminSection("attendance");
 
@@ -336,7 +435,6 @@ showAdminSection("attendance");
 if(currentUser.type==="employee"){
 
 document.getElementById("employeePage").classList.remove("hidden");
-
 loadEmployee();
 
 }
@@ -344,17 +442,12 @@ loadEmployee();
 if(currentUser.type==="viewer"){
 
 document.getElementById("viewerPage").classList.remove("hidden");
-
-loadViewer();
-
-}
+viewerAttendance();
 
 }
 
+}
 
-/* =========================================================
-   LOGOUT
-========================================================= */
 
 function logout(){
 
@@ -370,38 +463,120 @@ document.getElementById("loginMessage").innerText="";
 }
 
 
-/* =========================================================
+/* =========================
+   HELPERS
+========================= */
+
+function employeeName(code){
+
+const e=employees.find(x=>String(x.code)===String(code));
+return e ? e.name : code;
+}
+
+function employeeJob(code){
+
+const e=employees.find(x=>String(x.code)===String(code));
+return e ? (e.job || "-") : "-";
+}
+
+function escapeHTML(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
    DASHBOARD
-========================================================= */
+========================= */
 
 function updateDashboard(){
 
 const d=today();
 
-const present=attendance.filter(a=>a.date===d && a.status==="حضور").length;
-
-const absent=attendance.filter(a=>a.date===d && a.status==="غياب").length;
-
-const late=attendance.filter(a=>a.date===d && a.late===true).length;
-
 document.getElementById("totalEmployees").innerText=employees.length;
-document.getElementById("presentCount").innerText=present;
-document.getElementById("absentCount").innerText=absent;
-document.getElementById("lateCount").innerText=late;
+
+document.getElementById("presentCount").innerText=
+attendance.filter(a=>a.date===d && a.status==="حضور").length;
+
+document.getElementById("absentCount").innerText=
+attendance.filter(a=>a.date===d && a.status==="غياب").length;
+
+document.getElementById("lateCount").innerText=
+attendance.filter(a=>a.date===d && a.late===true).length;
 
 }
 
 
-/* =========================================================
+/* =========================
+   ADMIN EMPLOYEES
+========================= */
+
+function addEmployee(){
+
+const name=document.getElementById("newName").value.trim();
+const code=document.getElementById("newCode").value.trim();
+const password=document.getElementById("newPassword").value;
+const department=document.getElementById("newDepartment").value.trim();
+const job=document.getElementById("newJob").value.trim();
+
+if(!name || !code || !password){
+alert("اكتب الاسم والكود والباسورد");
+return;
+}
+
+if(employees.some(e=>String(e.code)===String(code))){
+alert("الكود موجود بالفعل");
+return;
+}
+
+employees.push({
+name,
+code,
+password,
+department,
+job
+});
+
+saveData();
+
+alert("تم إضافة الموظف بنجاح");
+
+showAdminSection("employees");
+updateDashboard();
+
+}
+
+
+function deleteEmployee(code){
+
+if(!confirm("هل تريد حذف الموظف؟")) return;
+
+employees=employees.filter(e=>String(e.code)!==String(code));
+
+saveData();
+
+showAdminSection("employees");
+updateDashboard();
+
+}
+
+
+/* =========================
    ADMIN SECTIONS
-========================================================= */
+========================= */
 
 function showAdminSection(section){
 
 const box=document.getElementById("adminContent");
 
 
-/* ================= EMPLOYEES ================= */
+/* EMPLOYEES */
 
 if(section==="employees"){
 
@@ -409,7 +584,7 @@ box.innerHTML=`
 
 <div class="panel">
 
-<h3>➕ إضافة موظف جديد</h3>
+<h3>➕ إضافة موظف</h3>
 
 <div class="grid">
 
@@ -429,13 +604,13 @@ box.innerHTML=`
 </div>
 
 <div>
-<label>الوظيفة</label>
-<input id="newJob" placeholder="مثال: Operator / Technician">
+<label>القسم</label>
+<input id="newDepartment">
 </div>
 
 <div>
-<label>القسم</label>
-<input id="newDepartment">
+<label>الوظيفة</label>
+<input id="newJob" placeholder="مثال: عامل / فني / قائد فريق">
 </div>
 
 </div>
@@ -444,9 +619,10 @@ box.innerHTML=`
 
 </div>
 
+
 <div class="panel">
 
-<h3>👥 قائمة الموظفين</h3>
+<h3>👥 الموظفين</h3>
 
 <table>
 
@@ -456,25 +632,22 @@ box.innerHTML=`
 <th>الوظيفة</th>
 <th>القسم</th>
 <th>الباسورد</th>
-<th>إجراء</th>
+<th>حذف</th>
 </tr>
 
-${employees.length===0
-?
-`<tr><td colspan="6" class="empty">لا يوجد موظفين</td></tr>`
-:
-employees.map(e=>`
+${employees.map(e=>`
 
 <tr>
 
 <td>${escapeHTML(e.code)}</td>
 <td>${escapeHTML(e.name)}</td>
-<td>${escapeHTML(e.job||"-")}</td>
-<td>${escapeHTML(e.department||"-")}</td>
+<td>${escapeHTML(e.job || "-")}</td>
+<td>${escapeHTML(e.department || "-")}</td>
 <td>${escapeHTML(e.password)}</td>
 
 <td>
-<button class="danger small-btn" onclick="deleteEmployee('${escapeHTML(e.code)}')">
+<button class="danger small-btn"
+onclick="deleteEmployee('${String(e.code).replace(/'/g,"\\'")}')">
 حذف
 </button>
 </td>
@@ -493,7 +666,7 @@ return;
 }
 
 
-/* ================= ATTENDANCE ================= */
+/* ATTENDANCE */
 
 if(section==="attendance"){
 
@@ -501,11 +674,7 @@ box.innerHTML=`
 
 <div class="panel">
 
-<h3>🕘 تسجيل حالة الموظف</h3>
-
-<div class="grid">
-
-<div>
+<h3>🕘 تسجيل حضور / حالة يوم</h3>
 
 <label>الموظف</label>
 
@@ -519,88 +688,90 @@ ${escapeHTML(e.code)} - ${escapeHTML(e.name)}
 
 </select>
 
-</div>
-
-<div>
-
 <label>التاريخ</label>
-
 <input type="date" id="attendanceDate" value="${today()}">
 
-</div>
-
-<div>
-
 <label>وقت الحضور</label>
-
 <input type="time" id="attendanceTime" value="08:00">
-
-</div>
-
-<div>
 
 <label>الحالة</label>
 
 <select id="attendanceStatus">
-
 <option>حضور</option>
 <option>غياب</option>
 <option>مرضي</option>
 <option>عارضة</option>
 <option>إجازة</option>
-
 </select>
 
-</div>
-
-<div>
-
-<label>تأخير</label>
+<label>التأخير</label>
 
 <select id="attendanceLate">
-
 <option value="no">لا</option>
 <option value="yes">نعم</option>
-
 </select>
 
-</div>
-
-</div>
-
-<button class="primary" onclick="saveAttendance()">حفظ الحالة</button>
+<button class="primary" onclick="saveAttendance()">
+حفظ الحالة
+</button>
 
 </div>
 
 
 <div class="panel">
 
-<h3>📋 آخر التسجيلات</h3>
+<h3>📅 سجل الحضور الشهري</h3>
+
+<div class="grid">
+
+<div>
+<label>اختر الموظف</label>
+<select id="monthlyEmployee">
+${employees.map(e=>`
+<option value="${escapeHTML(e.code)}">
+${escapeHTML(e.code)} - ${escapeHTML(e.name)}
+</option>
+`).join("")}
+</select>
+</div>
+
+<div>
+<label>الشهر</label>
+<input type="month" id="monthlyMonth" value="${monthNow()}">
+</div>
+
+</div>
+
+<button class="secondary" onclick="showMonthlyAttendance()">
+عرض الشهر
+</button>
+
+<div id="monthlyAttendanceResult"></div>
+
+</div>
+
+<div class="panel">
+
+<h3>آخر التسجيلات</h3>
 
 <table>
 
 <tr>
 <th>التاريخ</th>
 <th>الموظف</th>
-<th>الوظيفة</th>
 <th>الحالة</th>
 <th>الوقت</th>
 <th>تأخير</th>
 </tr>
 
-${attendance.length===0
-?
-`<tr><td colspan="6" class="empty">لا توجد تسجيلات</td></tr>`
-:
-attendance.slice().reverse().map(a=>`
+${attendance.slice().reverse().slice(0,100).map(a=>`
 
 <tr>
 <td>${escapeHTML(a.date)}</td>
 <td>${escapeHTML(employeeName(a.code))}</td>
-<td>${escapeHTML(employeeJob(a.code))}</td>
 <td>${escapeHTML(a.status)}</td>
-<td>${escapeHTML(a.time||"-")}</td>
-<td>${a.late?"نعم":"لا"}</td>
+<td>${escapeHTML(a.time || "-")}</td>
+<td>${a.late ? "نعم" : "لا"}</td>
 </tr>
 
 `).join("")}
@@ -615,44 +786,7 @@ return;
 }
 
 
-/* ================= MONTHLY ATTENDANCE ================= */
-
-if(section==="viewEmployeeAttendance"){
-
-box.innerHTML=`
-
-<div class="panel">
-
-<h3>📅 حضور موظف على مدار الشهر</h3>
-
-<label>اختر الموظف</label>
-
-<select id="monthlyEmployee" onchange="renderMonthlyAttendance()">
-
-${employees.map(e=>`
-<option value="${escapeHTML(e.code)}">
-${escapeHTML(e.code)} - ${escapeHTML(e.name)}
-</option>
-`).join("")}
-
-</select>
-
-<label>الشهر</label>
-
-<input type="month" id="monthlyMonth" value="${today().slice(0,7)}" onchange="renderMonthlyAttendance()">
-
-</div>
-
-<div id="monthlyAttendanceResult"></div>
-
-`;
-
-renderMonthlyAttendance();
-return;
-}
-
-
-/* ================= PENALTIES ================= */
+/* PENALTIES */
 
 if(section==="penalties"){
 
@@ -660,7 +794,7 @@ box.innerHTML=`
 
 <div class="panel">
 
-<h3>⚠️ تسجيل تأخير / جزاء / مخالفة</h3>
+<h3>⚠️ إضافة تأخير / جزاء / مخالفة</h3>
 
 <label>الموظف</label>
 
@@ -677,217 +811,281 @@ ${escapeHTML(e.code)} - ${escapeHTML(e.name)}
 <label>النوع</label>
 
 <select id="penaltyType">
-
 <option>تأخير</option>
 <option>تأخير من البريك</option>
 <option>جزاء</option>
 <option>مخالفة الزي</option>
 <option>مخالفة أخرى</option>
-
 </select>
 
 <label>التاريخ</label>
-
 <input type="date" id="penaltyDate" value="${today()}">
 
 <label>التفاصيل</label>
+<textarea id="penaltyDetails"></textarea>
 
-<textarea id="penaltyDetails"></textarea><button class="primary" onclick="savePenalty()">
-حفظ
-</button></div><div class="panel"><h3>📋 السجل</h3><table><tr>
+<button class="primary" onclick="savePenalty()">
+حفظ وإظهار إشعار للموظف
+</button>
+
+</div>
+
+
+<div class="panel">
+
+<h3>السجل</h3>
+
+<table>
+
+<tr>
 <th>التاريخ</th>
 <th>الموظف</th>
 <th>النوع</th>
 <th>التفاصيل</th>
-</tr>${penalties.length===0
-?
-"<tr><td colspan="4" class="empty">لا يوجد سجل</td></tr>"
-:
-penalties.slice().reverse().map(p=>`
+</tr>
+
+${penalties.slice().reverse().map(p=>`
 
 <tr>
 <td>${escapeHTML(p.date)}</td>
 <td>${escapeHTML(employeeName(p.code))}</td>
 <td>${escapeHTML(p.type)}</td>
-<td>${escapeHTML(p.details||"-")}</td>
-</tr>`).join("")}
+<td>${escapeHTML(p.details)}</td>
+</tr>
 
-</table></div>`;
+`).join("")}
+
+</table>
+
+</div>
+
+`;
 
 return;
 }
 
-/* ================= LEAVES ================= */
+
+/* LEAVES */
 
 if(section==="leaveRequests"){
 
 box.innerHTML=`
 
-<div class="panel"><h3>📝 طلبات الإجازة</h3><table><tr>
+<div class="panel">
+
+<h3>📝 طلبات الإجازة</h3>
+
+${leaves.length===0
+?
+`<div class="empty">لا توجد طلبات إجازة</div>`
+:
+`
+
+<table>
+
+<tr>
 <th>الموظف</th>
 <th>من</th>
 <th>إلى</th>
 <th>النوع</th>
 <th>السبب</th>
 <th>الحالة</th>
-</tr>${leaves.length===0
-?
-"<tr><td colspan="6" class="empty">لا توجد طلبات إجازة</td></tr>"
-:
-leaves.slice().reverse().map(l=>{
+</tr>
 
-const index=leaves.indexOf(l);
+${leaves.slice().reverse().map((l,index)=>{
+
+const realIndex=leaves.length-1-index;
 
 return `
 
-<tr><td>${escapeHTML(employeeName(l.code))}</td>
+<tr>
+
+<td>${escapeHTML(employeeName(l.code))}</td>
 <td>${escapeHTML(l.from)}</td>
 <td>${escapeHTML(l.to)}</td>
 <td>${escapeHTML(l.type)}</td>
-<td>${escapeHTML(l.reason)}</td><td>${
-l.status==="معلق"
+<td>${escapeHTML(l.reason)}</td>
+
+<td>
+
+${l.status==="معلق"
 
 ?
 
-"<button class="success small-btn" onclick="approveLeave(${index})">موافقة</button> <button class="danger small-btn" onclick="rejectLeave(${index})">رفض</button>"
+`
+<button class="success small-btn"
+onclick="approveLeave(${realIndex})">
+موافقة
+</button>
+
+<button class="danger small-btn"
+onclick="rejectLeave(${realIndex})">
+رفض
+</button>
+`
 
 :
 
-escapeHTML(l.status)
+`<span class="badge">${escapeHTML(l.status)}</span>`
 
 }
 
-</td></tr>`;
+</td>
+
+</tr>
+
+`;
 
 }).join("")}
 
-</table></div>`;
+</table>
+`}
+
+</div>
+
+`;
 
 return;
 }
 
-/* ================= KAIZEN ================= */
+
+/* KAIZEN */
 
 if(section==="kaizen"){
 
 box.innerHTML=`
 
-<div class="panel"><h3>💡 أفكار Kaizen</h3><table><tr>
+<div class="panel">
+
+<h3>💡 أفكار Kaizen</h3>
+
+${kaizens.length===0
+?
+`<div class="empty">لا توجد أفكار Kaizen</div>`
+:
+`
+
+<table>
+
+<tr>
 <th>الموظف</th>
 <th>الفكرة</th>
 <th>التأثير</th>
 <th>التاريخ</th>
 <th>الحالة</th>
-</tr>${kaizens.length===0
-?
-"<tr><td colspan="5" class="empty">لا توجد أفكار Kaizen</td></tr>"
-:
-kaizens.slice().reverse().map(k=>`
+</tr>
 
-<tr><td>${escapeHTML(employeeName(k.code))}</td>
+${kaizens.slice().reverse().map((k,index)=>{
+
+const realIndex=kaizens.length-1-index;
+
+return `
+
+<tr>
+
+<td>${escapeHTML(employeeName(k.code))}</td>
 <td>${escapeHTML(k.idea)}</td>
 <td>${escapeHTML(k.impact)}</td>
 <td>${escapeHTML(k.date)}</td>
-<td>${escapeHTML(k.status||"جديدة")}</td></tr>`).join("")}
 
-</table></div>`;
+<td>
+
+<select onchange="updateKaizenStatus(${realIndex},this.value)">
+<option ${k.status==="جديدة"?"selected":""}>جديدة</option>
+<option ${k.status==="قيد الدراسة"?"selected":""}>قيد الدراسة</option>
+<option ${k.status==="تم التنفيذ"?"selected":""}>تم التنفيذ</option>
+<option ${k.status==="مرفوضة"?"selected":""}>مرفوضة</option>
+</select>
+
+</td>
+
+</tr>
+
+`;
+
+}).join("")}
+
+</table>
+`}
+
+</div>
+
+`;
 
 return;
 }
 
-/* ================= KPI ================= */
+
+/* KPI */
 
 if(section==="kpi"){
 
 box.innerHTML=`
 
-<div class="panel"><h3>📊 KPI الموظفين</h3><table><tr>
+<div class="panel">
+
+<h3>📊 KPI الموظفين</h3>
+
+<table>
+
+<tr>
 <th>الكود</th>
 <th>الموظف</th>
 <th>الوظيفة</th>
 <th>التأخير</th>
-<th>تأخير البريك</th>
+<th>تأخير بريك</th>
 <th>الجزاءات</th>
 <th>الزي</th>
 <th>KPI</th>
-</tr>${employees.length===0
-?
-"<tr><td colspan="8" class="empty">لا يوجد موظفين</td></tr>"
-:
-employees.map(e=>{
+</tr>
+
+${employees.map(e=>{
 
 const r=calculateKPI(e.code);
 
 return `
 
-<tr><td>${escapeHTML(e.code)}</td>
+<tr>
+
+<td>${escapeHTML(e.code)}</td>
 <td>${escapeHTML(e.name)}</td>
-<td>${escapeHTML(e.job||"-")}</td>
+<td>${escapeHTML(e.job || "-")}</td>
 <td>${r.late}</td>
 <td>${r.breakLate}</td>
 <td>${r.penalties}</td>
-<td>${r.uniform}</td><td>
+<td>${r.uniform}</td>
+
+<td>
 <b>${r.kpi}%</b>
-</td></tr>`;
+</td>
+
+</tr>
+
+`;
 
 }).join("")}
 
-</table></div>`;
+</table>
+
+</div>
+
+`;
 
 return;
 }
 
-/* ================= VIEWERS ================= */
 
-if(section==="viewers"){
-
-box.innerHTML=`
-
-<div class="panel"><h3>👁️ إضافة قارئ</h3><div class="grid"><div>
-<label>اسم القارئ</label>
-<input id="viewerName">
-</div><div>
-<label>كود القارئ</label>
-<input id="viewerCode">
-</div><div>
-<label>الباسورد</label>
-<input id="viewerPassword" value="1234">
-</div></div><button class="primary" onclick="addViewer()">إضافة قارئ</button>
-
-</div><div class="panel"><h3>👁️ قائمة القراء</h3><table><tr>
-<th>الاسم</th>
-<th>الكود</th>
-<th>الباسورد</th>
-<th>حذف</th>
-</tr>${viewers.length===0
-?
-"<tr><td colspan="4" class="empty">لا يوجد قراء</td></tr>"
-:
-viewers.map(v=>`
-
-<tr>
-<td>${escapeHTML(v.name)}</td>
-<td>${escapeHTML(v.code)}</td>
-<td>${escapeHTML(v.password)}</td>
-<td>
-<button class="danger small-btn" onclick="deleteViewer('${escapeHTML(v.code)}')">
-حذف
-</button>
-</td>
-</tr>`).join("")}
-
-</table></div>`;
-
-return;
-}
-
-/* ================= ADMIN PASSWORD ================= */
+/* PASSWORD */
 
 if(section==="password"){
 
 box.innerHTML=`
 
-<div class="panel"><h3>🔐 تغيير باسورد المشرف</h3><label>الباسورد الحالي</label>
+<div class="panel">
+
+<h3>🔐 تغيير باسورد المشرف</h3>
+
+<label>الباسورد الحالي</label>
 <input type="password" id="oldAdminPassword">
 
 <label>الباسورد الجديد</label>
@@ -895,69 +1093,27 @@ box.innerHTML=`
 
 <button class="primary" onclick="changeAdminPassword()">
 تغيير الباسورد
-</button></div>`;
+</button>
+
+</div>
+
+`;
 
 }
 
 }
 
-/* =========================================================
-EMPLOYEE FUNCTIONS
-========================================================= */
 
-function addEmployee(){
-
-const name=document.getElementById("newName").value.trim();
-const code=document.getElementById("newCode").value.trim();
-const password=document.getElementById("newPassword").value;
-const job=document.getElementById("newJob").value.trim();
-const department=document.getElementById("newDepartment").value.trim();
-
-if(!name || !code || !password){
-alert("اكتب الاسم والكود والباسورد");
-return;
-}
-
-if(employees.some(e=>e.code===code)){
-alert("الكود موجود بالفعل");
-return;
-}
-
-employees.push({
-name,
-code,
-password,
-job,
-department
-});
-
-saveData();
-
-alert("تم إضافة الموظف بنجاح");
-
-showAdminSection("employees");
-updateDashboard();
-
-}
-
-function deleteEmployee(code){
-
-if(!confirm("هل تريد حذف الموظف؟")) return;
-
-employees=employees.filter(e=>e.code!==code);
-
-saveData();
-
-showAdminSection("employees");
-updateDashboard();
-
-}
-
-/* =========================================================
-ATTENDANCE
-========================================================= */
+/* =========================
+   ATTENDANCE
+========================= */
 
 function saveAttendance(){
+
+if(employees.length===0){
+alert("أضف موظفين أولاً");
+return;
+}
 
 const code=document.getElementById("attendanceEmployee").value;
 const date=document.getElementById("attendanceDate").value;
@@ -965,89 +1121,79 @@ const time=document.getElementById("attendanceTime").value;
 const status=document.getElementById("attendanceStatus").value;
 const late=document.getElementById("attendanceLate").value==="yes";
 
-const existing=attendance.findIndex(a=>a.code===code && a.date===date);
+const oldIndex=attendance.findIndex(a=>
+a.code===code && a.date===date
+);
 
-const record={
-code,
-date,
-time,
-status,
-late
-};
+const record={code,date,time,status,late};
 
-if(existing>=0){
-attendance[existing]=record;
-}else{
+if(oldIndex>=0){
+attendance[oldIndex]=record;
+}
+else{
 attendance.push(record);
 }
 
 saveData();
 
-alert("تم حفظ حالة الموظف");
+alert("تم حفظ حالة اليوم");
 
 showAdminSection("attendance");
 updateDashboard();
 
 }
 
-/* =========================================================
-MONTHLY ATTENDANCE
-========================================================= */
 
-function renderMonthlyAttendance(){
+function showMonthlyAttendance(){
 
-const code=document.getElementById("monthlyEmployee")?.value;
-const month=document.getElementById("monthlyMonth")?.value;
+const code=document.getElementById("monthlyEmployee").value;
+const month=document.getElementById("monthlyMonth").value;
 
-const box=document.getElementById("monthlyAttendanceResult");
-
-if(!box || !code || !month) return;
+const result=document.getElementById("monthlyAttendanceResult");
 
 const records=attendance
 .filter(a=>a.code===code && a.date.startsWith(month))
 .sort((a,b)=>a.date.localeCompare(b.date));
 
-const e=employees.find(x=>x.code===code);
+if(records.length===0){
+result.innerHTML=`<div class="empty">لا توجد تسجيلات لهذا الموظف في هذا الشهر</div>`;
+return;
+}
 
-box.innerHTML=`
+result.innerHTML=`
 
-<div class="panel"><h3>📅 سجل حضور ${escapeHTML(e?.name||code)}</h3><p>
-الوظيفة: <b>${escapeHTML(e?.job||"-")}</b>
-&nbsp; | &nbsp;
-القسم: <b>${escapeHTML(e?.department||"-")}</b>
-</p><table><tr>
+<table>
+
+<tr>
 <th>التاريخ</th>
+<th>اليوم</th>
 <th>الحالة</th>
 <th>وقت الحضور</th>
 <th>تأخير</th>
-</tr>${
-records.length===0
-?
-"<tr><td colspan="4" class="empty">لا توجد تسجيلات لهذا الشهر</td></tr>"
-:
-records.map(a=>`
+</tr>
 
-<tr><td>${escapeHTML(a.date)}</td><td>${escapeHTML(a.status)}</td><td>${escapeHTML(a.time||"-")}</td><td>${a.late
-?'<span class="badge badge-red">متأخر</span>'
-:'<span class="badge badge-green">في الموعد</span>'}</td></tr>`).join("")
-}
+${records.map(a=>`
 
-</table><div class="employee-kpi-grid" style="margin-top:15px"><div class="kpi-mini">
-الحضور
-<b>${records.filter(x=>x.status==="حضور").length}</b>
-</div><div class="kpi-mini">
-الغياب
-<b>${records.filter(x=>x.status==="غياب").length}</b>
-</div><div class="kpi-mini">
-التأخير
-<b>${records.filter(x=>x.late).length}</b>
-</div></div></div>`;
+<tr>
+<td>${escapeHTML(a.date)}</td>
+<td>${new Date(a.date+"T00:00:00").toLocaleDateString("ar-EG",{weekday:"long"})}</td>
+<td>${escapeHTML(a.status)}</td>
+<td>${escapeHTML(a.time || "-")}</td>
+<td>${a.late ? "نعم" : "لا"}</td>
+</tr>
+
+`).join("")}
+
+</table>
+
+`;
 
 }
 
-/* =========================================================
-PENALTIES
-========================================================= */
+
+/* =========================
+   PENALTIES
+========================= */
 
 function savePenalty(){
 
@@ -1057,45 +1203,44 @@ const type=document.getElementById("penaltyType").value;
 const details=document.getElementById("penaltyDetails").value.trim();
 
 if(!details){
-alert("اكتب تفاصيل المخالفة أو التأخير");
+alert("اكتب التفاصيل");
 return;
 }
 
 penalties.push({
-code,
-date,
-type,
-details,
-notification:true
+code,date,type,details,
+notification:true,
+read:false
 });
 
 saveData();
 
-alert("تم تسجيل المخالفة وإرسال إشعار للموظف");
+alert("تم التسجيل وإرسال الإشعار للموظف");
 
 showAdminSection("penalties");
-
 }
 
-/* =========================================================
-LEAVES
-========================================================= */
+
+/* =========================
+   LEAVES
+========================= */
 
 function approveLeave(index){
 
 leaves[index].status="موافق عليه";
-leaves[index].notification=true;
+leaves[index].updatedAt=today();
 
 saveData();
 
 showAdminSection("leaveRequests");
 
 }
+
 
 function rejectLeave(index){
 
 leaves[index].status="مرفوض";
-leaves[index].notification=true;
+leaves[index].updatedAt=today();
 
 saveData();
 
@@ -1103,9 +1248,23 @@ showAdminSection("leaveRequests");
 
 }
 
-/* =========================================================
-ADMIN PASSWORD
-========================================================= */
+
+/* =========================
+   KAIZEN
+========================= */
+
+function updateKaizenStatus(index,status){
+
+kaizens[index].status=status;
+
+saveData();
+
+}
+
+
+/* =========================
+   ADMIN PASSWORD
+========================= */
 
 function changeAdminPassword(){
 
@@ -1117,8 +1276,8 @@ alert("الباسورد الحالي غير صحيح");
 return;
 }
 
-if(!newPassword){
-alert("اكتب الباسورد الجديد");
+if(newPassword.length<4){
+alert("الباسورد الجديد يجب أن يكون 4 أرقام/حروف على الأقل");
 return;
 }
 
@@ -1130,67 +1289,20 @@ alert("تم تغيير باسورد المشرف بنجاح");
 
 }
 
-/* =========================================================
-VIEWERS
-========================================================= */
 
-function addViewer(){
-
-const name=document.getElementById("viewerName").value.trim();
-const code=document.getElementById("viewerCode").value.trim();
-const password=document.getElementById("viewerPassword").value;
-
-if(!name || !code || !password){
-alert("اكتب اسم القارئ والكود والباسورد");
-return;
-}
-
-if(viewers.some(v=>v.code===code)){
-alert("كود القارئ موجود بالفعل");
-return;
-}
-
-viewers.push({
-name,
-code,
-password
-});
-
-saveData();
-
-alert("تم إضافة القارئ بنجاح");
-
-showAdminSection("viewers");
-
-}
-
-function deleteViewer(code){
-
-if(!confirm("هل تريد حذف القارئ؟")) return;
-
-viewers=viewers.filter(v=>v.code!==code);
-
-saveData();
-
-showAdminSection("viewers");
-
-}
-
-/* =========================================================
-KPI
-========================================================= */
+/* =========================
+   KPI
+========================= */
 
 function calculateKPI(code){
 
-const late=penalties.filter(
-p=>p.code===code && p.type==="تأخير"
-).length;
+const late=penalties.filter(p=>p.code===code && p.type==="تأخير").length;
 
 const breakLate=penalties.filter(
 p=>p.code===code && p.type==="تأخير من البريك"
 ).length;
 
-const penalty=penalties.filter(
+const penaltiesCount=penalties.filter(
 p=>p.code===code && p.type==="جزاء"
 ).length;
 
@@ -1198,221 +1310,214 @@ const uniform=penalties.filter(
 p=>p.code===code && p.type==="مخالفة الزي"
 ).length;
 
-/*
-نظام KPI:
-يبدأ من 100
-كل تأخير = -2
-تأخير من البريك = -2
-جزاء = -10
-مخالفة زي = -3
-*/
-
 let score=100;
 
-score-=late2;
-score-=breakLate2;
-score-=penalty10;
-score-=uniform3;
+score-=late*2;
+score-=breakLate*2;
+score-=penaltiesCount*5;
+score-=uniform*3;
 
 score=Math.max(0,Math.min(100,score));
 
 return{
 late,
 breakLate,
-penalties:penalty,
+penalties:penaltiesCount,
 uniform,
 kpi:score
 };
 
 }
 
-/* =========================================================
-EMPLOYEE HOME
-========================================================= */
+
+/* =========================
+   EMPLOYEE
+========================= */
 
 function loadEmployee(){
 
-const e=employees.find(x=>x.code===currentUser.code);
+const employee=employees.find(e=>e.code===currentUser.code);
+
+if(!employee)return;
 
 document.getElementById("employeeName").innerText=
-"👤 "+(e?.name||currentUser.name);
+"👤 "+employee.name+
+" | الوظيفة: "+(employee.job || "-")+
+" | القسم: "+(employee.department || "-");
 
-showEmployeeHomeKPI();
 loadEmployeeNotifications();
 
-}
-
-function showEmployeeHomeKPI(){
-
-const r=calculateKPI(currentUser.code);
-
-document.getElementById("employeeHomeKPI").innerHTML=`
-
-<div class="kpi-box"><div class="kpi-title">KPI الخاص بي</div><div class="kpi-number">${r.kpi}%</div><div>
-التأخير: ${r.late}
-&nbsp; | &nbsp;
-تأخير البريك: ${r.breakLate}
-&nbsp; | &nbsp;
-الجزاءات: ${r.penalties}
-&nbsp; | &nbsp;
-الزي: ${r.uniform}
-</div></div>`;
+employeeKPI(true);
 
 }
 
-/* =========================================================
-EMPLOYEE NOTIFICATIONS
-========================================================= */
 
 function loadEmployeeNotifications(){
 
 const box=document.getElementById("employeeNotifications");
 
-const myLeaves=leaves.filter(
-l=>l.code===currentUser.code && l.notification
-);
-
 const myPenalties=penalties.filter(
 p=>p.code===currentUser.code && p.notification
 );
 
+const myLeaves=leaves.filter(
+l=>l.code===currentUser.code
+);
+
 let html="";
 
-myLeaves.forEach(l=>{
+myPenalties.slice().reverse().slice(0,5).forEach(p=>{
 
 html+=`
 
-<div class="notice">📝 طلب إجازة من
-<b>${escapeHTML(l.from)}</b>
-إلى
-<b>${escapeHTML(l.to)}</b>
+<div class="notice">
+⚠️ <b>${escapeHTML(p.type)}</b><br>
+${escapeHTML(p.details)}<br>
+<small>${escapeHTML(p.date)}</small>
+</div>
 
-<br>الحالة:
-<b>${escapeHTML(l.status)}</b>
-
-</div>`;
+`;
 
 });
 
-myPenalties.forEach(p=>{
+
+myLeaves.slice().reverse().slice(0,3).forEach(l=>{
+
+if(l.status!=="معلق"){
 
 html+=`
 
-<div class="notice">⚠️ ${escapeHTML(p.type)}
+<div class="notice">
+📝 طلب الإجازة من ${escapeHTML(l.from)}
+إلى ${escapeHTML(l.to)}
+<br>
+الحالة: <b>${escapeHTML(l.status)}</b>
+</div>
 
-<br>${escapeHTML(p.details)}
+`;
 
-<br>التاريخ: ${escapeHTML(p.date)}
-
-</div>`;
+}
 
 });
+
 
 box.innerHTML=html;
 
 }
 
-/* =========================================================
-EMPLOYEE ATTENDANCE
-========================================================= */
+
+/* =========================
+   EMPLOYEE KPI
+========================= */
+
+function employeeKPI(home=false){
+
+const r=calculateKPI(currentUser.code);
+
+const box=home
+?document.getElementById("employeeHomeKPI")
+:document.getElementById("employeeContent");
+
+box.innerHTML=`
+
+<div class="kpi-box">
+
+<div>⭐ KPI الخاص بي</div>
+
+<div class="kpi-number">${r.kpi}%</div>
+
+<div>
+تأخير: ${r.late}
+&nbsp; | &nbsp;
+تأخير بريك: ${r.breakLate}
+&nbsp; | &nbsp;
+جزاءات: ${r.penalties}
+&nbsp; | &nbsp;
+زي: ${r.uniform}
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================
+   EMPLOYEE ATTENDANCE
+========================= */
 
 function employeeAttendance(){
 
 const box=document.getElementById("employeeContent");
 
-box.innerHTML=`
-
-<div class="panel"><h3>🕘 حضوري على مدار الشهر</h3><label>اختر الشهر</label>
-
-<input type="month"
-id="employeeAttendanceMonth"
-value="${today().slice(0,7)"
-onchange="renderEmployeeAttendance()">
-
-</div><div id="employeeAttendanceResult"></div>`;
-
-renderEmployeeAttendance();
-
-}
-
-function renderEmployeeAttendance(){
-
-const month=document.getElementById("employeeAttendanceMonth")?.value;
-const box=document.getElementById("employeeAttendanceResult");
-
-if(!box || !month) return;
-
 const records=attendance
-.filter(a=>a.code===currentUser.code && a.date.startsWith(month))
+.filter(a=>a.code===currentUser.code && a.date.startsWith(monthNow()))
 .sort((a,b)=>a.date.localeCompare(b.date));
 
 box.innerHTML=`
 
-<div class="panel"><table><tr>
-<th>التاريخ</th>
-<th>الحالة</th>
-<th>وقت الحضور</th>
-<th>التأخير</th>
-</tr>${
-records.length===0
+<div class="panel">
+
+<h3>🕘 حضوري خلال الشهر الحالي</h3>
+
+${records.length===0
 ?
-"<tr><td colspan="4" class="empty">لا يوجد تسجيل لهذا الشهر</td></tr>"
+`<div class="empty">لا توجد تسجيلات لهذا الشهر</div>`
 :
-records.map(a=>`
+`
 
-<tr><td>${escapeHTML(a.date)}</td>
+<table>
+
+<tr>
+<th>التاريخ</th>
+<th>اليوم</th>
+<th>الحالة</th>
+<th>الوقت</th>
+<th>التأخير</th>
+</tr>
+
+${records.map(a=>`
+
+<tr>
+<td>${escapeHTML(a.date)}</td>
+<td>${new Date(a.date+"T00:00:00").toLocaleDateString("ar-EG",{weekday:"long"})}</td>
 <td>${escapeHTML(a.status)}</td>
-<td>${escapeHTML(a.time||"-")}</td><td>
-${a.late
-?'<span class="badge badge-red">متأخر</span>'
-:'<span class="badge badge-green">في الموعد</span>'}
-</td></tr>`).join("")
-}
+<td>${escapeHTML(a.time || "-")}</td>
+<td>${a.late ? "نعم" : "لا"}</td>
+</tr>
 
-</table></div>`;
+`).join("")}
 
-}
+</table>
+`}
 
-/* =========================================================
-EMPLOYEE KPI
-========================================================= */
+</div>
 
-function employeeKPI(){
-
-const r=calculateKPI(currentUser.code);
-
-document.getElementById("employeeContent").innerHTML=`
-
-<div class="kpi-box"><div class="kpi-title">KPI الخاص بي</div><div class="kpi-number">${r.kpi}%</div></div><div class="employee-kpi-grid"><div class="kpi-mini">
-التأخير
-<b>${r.late}</b>
-</div><div class="kpi-mini">
-تأخير من البريك
-<b>${r.breakLate}</b>
-</div><div class="kpi-mini">
-الجزاءات
-<b>${r.penalties}</b>
-</div><div class="kpi-mini">
-مخالفات الزي
-<b>${r.uniform}</b>
-</div></div>`;
+`;
 
 }
 
-/* =========================================================
-EMPLOYEE LEAVE
-========================================================= */
+
+/* =========================
+   EMPLOYEE LEAVE
+========================= */
 
 function employeeLeave(){
 
+const box=document.getElementById("employeeContent");
+
 const myLeaves=leaves
 .filter(l=>l.code===currentUser.code)
-.slice()
-.reverse();
+.slice().reverse();
 
-document.getElementById("employeeContent").innerHTML=`
+box.innerHTML=`
 
-<div class="panel"><h3>📝 طلب إجازة</h3><label>من</label>
+<div class="panel">
+
+<h3>📝 تقديم طلب إجازة</h3>
+
+<label>من</label>
 <input type="date" id="leaveFrom">
 
 <label>إلى</label>
@@ -1425,22 +1530,39 @@ document.getElementById("employeeContent").innerHTML=`
 <option>عارضة</option>
 <option>مرضية</option>
 <option>بدون أجر</option>
-</select><label>السبب</label>
+</select>
 
-<textarea id="leaveReason"></textarea><button class="primary" onclick="submitLeave()">
+<label>السبب</label>
+<textarea id="leaveReason"></textarea>
+
+<button class="primary" onclick="submitLeave()">
 إرسال طلب الإجازة
-</button></div><div class="panel"><h3>📋 طلباتي السابقة</h3><table><tr>
+</button>
+
+</div>
+
+
+<div class="panel">
+
+<h3>📋 طلباتي السابقة</h3>
+
+${myLeaves.length===0
+?
+`<div class="empty">لا توجد طلبات</div>`
+:
+`
+
+<table>
+
+<tr>
 <th>من</th>
 <th>إلى</th>
 <th>النوع</th>
 <th>السبب</th>
 <th>الحالة</th>
-</tr>${
-myLeaves.length===0
-?
-"<tr><td colspan="5" class="empty">لا توجد طلبات</td></tr>"
-:
-myLeaves.map(l=>`
+</tr>
+
+${myLeaves.map(l=>`
 
 <tr>
 <td>${escapeHTML(l.from)}</td>
@@ -1448,12 +1570,19 @@ myLeaves.map(l=>`
 <td>${escapeHTML(l.type)}</td>
 <td>${escapeHTML(l.reason)}</td>
 <td>${escapeHTML(l.status)}</td>
-</tr>`).join("")
+</tr>
+
+`).join("")}
+
+</table>
+`}
+
+</div>
+
+`;
+
 }
 
-</table></div>`;
-
-}
 
 function submitLeave(){
 
@@ -1463,17 +1592,12 @@ const type=document.getElementById("leaveType").value;
 const reason=document.getElementById("leaveReason").value.trim();
 
 if(!from || !to){
-alert("اختار تاريخ بداية ونهاية الإجازة");
+alert("اختار تاريخ البداية والنهاية");
 return;
 }
 
 if(to<from){
-alert("تاريخ النهاية لا يمكن أن يكون قبل تاريخ البداية");
-return;
-}
-
-if(!reason){
-alert("اكتب سبب الإجازة");
+alert("تاريخ النهاية لا يمكن أن يكون قبل البداية");
 return;
 }
 
@@ -1484,7 +1608,7 @@ to,
 type,
 reason,
 status:"معلق",
-notification:false
+date:today()
 });
 
 saveData();
@@ -1495,55 +1619,87 @@ employeeLeave();
 
 }
 
-/* =========================================================
-EMPLOYEE KAIZEN
-========================================================= */
+
+/* =========================
+   EMPLOYEE KAIZEN
+========================= */
 
 function employeeKaizen(){
 
+const box=document.getElementById("employeeContent");
+
 const myKaizens=kaizens
 .filter(k=>k.code===currentUser.code)
-.slice()
-.reverse();
+.slice().reverse();
 
-document.getElementById("employeeContent").innerHTML=`
+box.innerHTML=`
 
-<div class="panel"><h3>💡 تقديم فكرة Kaizen</h3><label>الفكرة</label>
+<div class="panel">
 
-<textarea id="kaizenIdea" placeholder="اكتب فكرة التحسين هنا"></textarea><label>التأثير المتوقع</label>
+<h3>💡 اقتراح Kaizen جديد</h3>
 
-<select id="kaizenImpact"><option>تحسين الجودة</option>
+<label>الفكرة</label>
+<textarea id="kaizenIdea"
+placeholder="اكتب اقتراحك لتحسين الجودة أو الإنتاج أو السلامة أو الوقت..."></textarea>
+
+<label>التأثير المتوقع</label>
+
+<select id="kaizenImpact">
 <option>زيادة الإنتاجية</option>
+<option>تحسين الجودة</option>
 <option>تقليل الهالك</option>
 <option>تقليل الوقت</option>
 <option>تحسين السلامة</option>
 <option>توفير تكلفة</option>
 <option>تحسين 5S</option>
-<option>أخرى</option></select><button class="primary" onclick="submitKaizen()">
-إرسال الفكرة
-</button></div><div class="panel"><h3>📋 أفكاري السابقة</h3><table><tr>
+</select>
+
+<button class="primary" onclick="submitKaizen()">
+إرسال فكرة Kaizen
+</button>
+
+</div>
+
+
+<div class="panel">
+
+<h3>أفكاري</h3>
+
+${myKaizens.length===0
+?
+`<div class="empty">لم ترسل أي أفكار بعد</div>`
+:
+`
+
+<table>
+
+<tr>
 <th>الفكرة</th>
 <th>التأثير</th>
 <th>التاريخ</th>
 <th>الحالة</th>
-</tr>${
-myKaizens.length===0
-?
-"<tr><td colspan="4" class="empty">لا توجد أفكار</td></tr>"
-:
-myKaizens.map(k=>`
+</tr>
+
+${myKaizens.map(k=>`
 
 <tr>
 <td>${escapeHTML(k.idea)}</td>
 <td>${escapeHTML(k.impact)}</td>
 <td>${escapeHTML(k.date)}</td>
-<td>${escapeHTML(k.status||"جديدة")}</td>
-</tr>`).join("")
+<td>${escapeHTML(k.status)}</td>
+</tr>
+
+`).join("")}
+
+</table>
+`}
+
+</div>
+
+`;
+
 }
 
-</table></div>`;
-
-}
 
 function submitKaizen(){
 
@@ -1571,48 +1727,22 @@ employeeKaizen();
 
 }
 
-/* =========================================================
-EMPLOYEE PENALTIES
-========================================================= */
 
-function employeePenalties(){
-
-const myPenalties=penalties
-.filter(p=>p.code===currentUser.code)
-.slice()
-.reverse();
-
-document.getElementById("employeeContent").innerHTML=`
-
-<div class="panel"><h3>⚠️ التأخيرات والجزاءات والمخالفات</h3><table><tr>
-<th>التاريخ</th>
-<th>النوع</th>
-<th>التفاصيل</th>
-</tr>${
-myPenalties.length===0
-?
-"<tr><td colspan="3" class="empty">لا توجد مخالفات أو جزاءات</td></tr>"
-:
-myPenalties.map(p=>`
-
-<tr><td>${escapeHTML(p.date)}</td>
-<td>${escapeHTML(p.type)}</td>
-<td>${escapeHTML(p.details||"-")}</td></tr>`).join("")
-}
-
-</table></div>`;
-
-}
-
-/* =========================================================
-EMPLOYEE PASSWORD
-========================================================= */
+/* =========================
+   EMPLOYEE PASSWORD
+========================= */
 
 function employeePassword(){
 
-document.getElementById("employeeContent").innerHTML=`
+const box=document.getElementById("employeeContent");
 
-<div class="panel"><h3>🔐 تغيير كلمة المرور</h3><label>الباسورد الحالي</label>
+box.innerHTML=`
+
+<div class="panel">
+
+<h3>🔐 تغيير كلمة المرور</h3>
+
+<label>الباسورد الحالي</label>
 <input type="password" id="oldEmployeePassword">
 
 <label>الباسورد الجديد</label>
@@ -1620,30 +1750,33 @@ document.getElementById("employeeContent").innerHTML=`
 
 <button class="primary" onclick="changeEmployeePassword()">
 تغيير الباسورد
-</button></div>`;
+</button>
+
+</div>
+
+`;
 
 }
 
+
 function changeEmployeePassword(){
 
-const oldPassword=document.getElementById("oldEmployeePassword").value;
-const newPassword=document.getElementById("newEmployeePassword").value;
+const employee=employees.find(e=>e.code===currentUser.code);
 
-const e=employees.find(x=>x.code===currentUser.code);
+const oldPass=document.getElementById("oldEmployeePassword").value;
+const newPass=document.getElementById("newEmployeePassword").value;
 
-if(!e) return;
-
-if(e.password!==oldPassword){
+if(oldPass!==employee.password){
 alert("الباسورد الحالي غير صحيح");
 return;
 }
 
-if(!newPassword){
-alert("اكتب الباسورد الجديد");
+if(newPass.length<4){
+alert("الباسورد الجديد يجب أن يكون 4 أحرف/أرقام على الأقل");
 return;
 }
 
-e.password=newPassword;
+employee.password=newPass;
 
 saveData();
 
@@ -1651,77 +1784,231 @@ alert("تم تغيير الباسورد بنجاح");
 
 }
 
-/* =========================================================
-VIEWER
-========================================================= */
 
-function loadViewer(){
+/* =========================
+   VIEWER
+========================= */
+
+function viewerAttendance(){
 
 const box=document.getElementById("viewerContent");
 
 box.innerHTML=`
 
-<div class="cards"><div class="card">
-<div class="card-title">الموظفين</div>
-<div class="number">${employees.length}</div>
-</div><div class="card">
-<div class="card-title">حضور اليوم</div>
-<div class="number">
-${attendance.filter(a=>a.date===today() && a.status==="حضور").length}
-</div>
-</div><div class="card">
-<div class="card-title">غياب اليوم</div>
-<div class="number">
-${attendance.filter(a=>a.date===today() && a.status==="غياب").length}
-</div>
-</div><div class="card">
-<div class="card-title">التأخير اليوم</div>
-<div class="number">
-${attendance.filter(a=>a.date===today() && a.late).length}
-</div>
-</div></div><div class="panel" style="margin-top:20px"><h3>📊 KPI الموظفين</h3><table><tr>
-<th>الموظف</th>
-<th>الوظيفة</th>
-<th>KPI</th>
-</tr>${employees.map(e=>{
+<div class="panel">
 
-const r=calculateKPI(e.code);
+<h3>🕘 الحضور والانصراف</h3>
 
-return`
+<table>
 
 <tr>
-<td>${escapeHTML(e.name)}</td>
-<td>${escapeHTML(e.job||"-")}</td>
-<td><b>${r.kpi}%</b></td>
-</tr>`;
-
-}).join("")}
-
-</table></div><div class="panel"><h3>🕘 الحضور</h3><table><tr>
 <th>التاريخ</th>
 <th>الموظف</th>
 <th>الحالة</th>
 <th>الوقت</th>
 <th>تأخير</th>
-</tr>${attendance.slice().reverse().map(a=>`
+</tr>
+
+${attendance.slice().reverse().slice(0,200).map(a=>`
 
 <tr>
 <td>${escapeHTML(a.date)}</td>
 <td>${escapeHTML(employeeName(a.code))}</td>
 <td>${escapeHTML(a.status)}</td>
-<td>${escapeHTML(a.time||"-")}</td>
-<td>${a.late?"نعم":"لا"}</td>
-</tr>`).join("")}
+<td>${escapeHTML(a.time || "-")}</td>
+<td>${a.late ? "نعم" : "لا"}</td>
+</tr>
 
-</table></div>`;
+`).join("")}
+
+</table>
+
+</div>
+
+`;
 
 }
 
-/* =========================================================
-STARTUP
-========================================================= */
+
+function viewerKPI(){
+
+const box=document.getElementById("viewerContent");
+
+box.innerHTML=`
+
+<div class="panel">
+
+<h3>📊 KPI</h3>
+
+<table>
+
+<tr>
+<th>الموظف</th>
+<th>الوظيفة</th>
+<th>التأخير</th>
+<th>البريك</th>
+<th>الجزاءات</th>
+<th>الزي</th>
+<th>KPI</th>
+</tr>
+
+${employees.map(e=>{
+
+const r=calculateKPI(e.code);
+
+return `
+
+<tr>
+<td>${escapeHTML(e.name)}</td>
+<td>${escapeHTML(e.job || "-")}</td>
+<td>${r.late}</td>
+<td>${r.breakLate}</td>
+<td>${r.penalties}</td>
+<td>${r.uniform}</td>
+<td><b>${r.kpi}%</b></td>
+</tr>
+
+`;
+
+}).join("")}
+
+</table>
+
+</div>
+
+`;
+
+}
+
+
+function viewerPenalties(){
+
+const box=document.getElementById("viewerContent");
+
+box.innerHTML=`
+
+<div class="panel">
+
+<h3>⚠️ التأخيرات والجزاءات</h3>
+
+<table>
+
+<tr>
+<th>التاريخ</th>
+<th>الموظف</th>
+<th>النوع</th>
+<th>التفاصيل</th>
+</tr>
+
+${penalties.slice().reverse().map(p=>`
+
+<tr>
+<td>${escapeHTML(p.date)}</td>
+<td>${escapeHTML(employeeName(p.code))}</td>
+<td>${escapeHTML(p.type)}</td>
+<td>${escapeHTML(p.details)}</td>
+</tr>
+
+`).join("")}
+
+</table>
+
+</div>
+
+`;
+
+}
+
+
+function viewerLeaves(){
+
+const box=document.getElementById("viewerContent");
+
+box.innerHTML=`
+
+<div class="panel">
+
+<h3>📝 طلبات الإجازة</h3>
+
+<table>
+
+<tr>
+<th>الموظف</th>
+<th>من</th>
+<th>إلى</th>
+<th>النوع</th>
+<th>الحالة</th>
+</tr>
+
+${leaves.slice().reverse().map(l=>`
+
+<tr>
+<td>${escapeHTML(employeeName(l.code))}</td>
+<td>${escapeHTML(l.from)}</td>
+<td>${escapeHTML(l.to)}</td>
+<td>${escapeHTML(l.type)}</td>
+<td>${escapeHTML(l.status)}</td>
+</tr>
+
+`).join("")}
+
+</table>
+
+</div>
+
+`;
+
+}
+
+
+function viewerKaizen(){
+
+const box=document.getElementById("viewerContent");
+
+box.innerHTML=`
+
+<div class="panel">
+
+<h3>💡 Kaizen</h3>
+
+<table>
+
+<tr>
+<th>الموظف</th>
+<th>الفكرة</th>
+<th>التأثير</th>
+<th>التاريخ</th>
+<th>الحالة</th>
+</tr>
+
+${kaizens.slice().reverse().map(k=>`
+
+<tr>
+<td>${escapeHTML(employeeName(k.code))}</td>
+<td>${escapeHTML(k.idea)}</td>
+<td>${escapeHTML(k.impact)}</td>
+<td>${escapeHTML(k.date)}</td>
+<td>${escapeHTML(k.status)}</td>
+</tr>
+
+`).join("")}
+
+</table>
+
+</div>
+
+`;
+
+}
+
+
+/* =========================
+   START
+========================= */
 
 updateLoginLabels();
 
-</script></body>
+</script>
+
+</body>
 </html>
