@@ -17,6 +17,7 @@ background:#075BFF;color:white;padding:22px 18px;
 border-radius:0 0 25px 25px;
 box-shadow:0 4px 15px #0002
 }
+
 .header h1{margin:0;font-size:25px}
 .header p{margin:7px 0 0;opacity:.9}
 
@@ -29,12 +30,1320 @@ box-shadow:0 3px 15px #0000000d
 }
 
 .login{
-max-width:430px;margin:70px auto;padding:25px
+max-width:430px;margin:55px auto;padding:25px
 }
 
 .logo{
-width:75px;height:75px;border-radius:22px;
+width:78px;height:78px;border-radius:23px;
 background:#075BFF;color:white;
+display:flex;align-items:center;justify-content:center;
+font-size:38px;font-weight:bold;
+margin:auto auto 15px
+}
+
+input,select,textarea{
+width:100%;padding:13px;margin:7px 0 12px;
+border:1px solid #d8dde8;border-radius:12px;
+background:white
+}
+
+textarea{min-height:100px;resize:vertical}
+
+.btn{
+width:100%;padding:14px;border:0;border-radius:13px;
+background:#075BFF;color:white;margin:5px 0
+}
+
+.btn.secondary{
+background:white;color:#075BFF;
+border:1px solid #075BFF
+}
+
+.btn.danger{background:#d93025}
+.btn.success{background:#188038}
+.btn.dark{background:#172033}
+
+.hidden{display:none!important}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px
+}
+
+.stat{
+background:white;border-radius:17px;padding:18px;
+box-shadow:0 3px 12px #0000000b
+}
+
+.stat-title{font-size:14px;color:#667085}
+.stat-number{font-size:28px;font-weight:bold;margin-top:8px}
+
+.menu{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;margin-top:15px
+}
+
+.menu button{
+padding:18px;border:0;border-radius:16px;
+background:white;box-shadow:0 3px 12px #0000000b;
+color:#172033
+}
+
+.topbar{
+display:flex;justify-content:space-between;
+align-items:center;gap:10px;margin-bottom:15px
+}
+
+.back{width:auto;padding:10px 16px}
+
+.badge{
+display:inline-block;padding:6px 10px;
+border-radius:20px;background:#eef3ff;
+color:#075BFF;font-size:13px
+}
+
+.row{
+display:flex;align-items:center;
+justify-content:space-between;
+gap:10px;padding:13px 0;
+border-bottom:1px solid #eee
+}
+
+.notice{
+background:#fff8e1;
+border-right:4px solid #f9ab00;
+padding:13px;border-radius:10px;
+margin-bottom:10px
+}
+
+.successBox{
+background:#eaf7ee;
+border-right:4px solid #188038;
+padding:13px;border-radius:10px;
+margin-bottom:10px
+}
+
+.dangerBox{
+background:#fdecec;
+border-right:4px solid #d93025;
+padding:13px;border-radius:10px;
+margin-bottom:10px
+}
+
+.kaizenBox{
+background:#f3f7ff;
+border-right:5px solid #075BFF;
+padding:15px;border-radius:12px;
+margin-bottom:12px
+}
+
+.impact{
+display:inline-block;
+padding:7px 10px;
+background:#eef3ff;
+color:#075BFF;
+border-radius:20px;
+font-size:13px;
+margin:3px
+}
+
+.timeBox{
+font-size:28px;
+font-weight:bold;
+text-align:center;
+padding:18px;
+background:#eef3ff;
+border-radius:15px;
+margin:10px 0
+}
+
+.checkrow{
+display:flex;
+align-items:center;
+gap:10px;
+padding:12px;
+border-bottom:1px solid #eee
+}
+
+.checkrow input{
+width:20px;
+height:20px;
+margin:0
+}
+
+.kpiBar{
+height:14px;background:#e5e7eb;
+border-radius:20px;overflow:hidden
+}
+
+.kpiBar div{
+height:100%;background:#075BFF
+}
+
+.small{font-size:13px;color:#667085}
+
+@media(min-width:700px){
+.grid{grid-template-columns:repeat(4,1fr)}
+.menu{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- LOGIN -->
+
+<section id="loginPage">
+
+<div class="login card">
+
+<div class="logo">S</div>
+
+<h1 style="text-align:center">
+Signify Workforce
+</h1>
+
+<p style="text-align:center;color:#667085">
+نظام إدارة الموظفين والحضور والـ KPI
+</p>
+
+<label>الكود / اسم المستخدم</label>
+
+<input id="loginCode" placeholder="EMP001">
+
+<label>كلمة المرور</label>
+
+<input id="loginPassword"
+type="password"
+placeholder="••••••••">
+
+<button class="btn" onclick="login()">
+دخول
+</button>
+
+<div id="loginError"
+style="color:#d93025;text-align:center">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- APP -->
+
+<section id="appPage" class="hidden">
+
+<div class="header">
+
+<h1>Signify Workforce</h1>
+
+<p id="welcome"></p>
+
+</div>
+
+<div class="container">
+
+
+<!-- MANAGER -->
+
+<div id="managerDashboard" class="hidden">
+
+<div class="topbar">
+
+<h2>لوحة القيادة</h2>
+
+<span id="roleBadge" class="badge"></span>
+
+</div>
+
+<div class="grid">
+
+<div class="stat">
+<div class="stat-title">👥 الموظفين</div>
+<div class="stat-number" id="employeeCount">0</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">✅ الحضور</div>
+<div class="stat-number" id="presentCount">0</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">❌ الغياب</div>
+<div class="stat-number" id="absentCount">0</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">⏰ المتأخرين</div>
+<div class="stat-number" id="lateCount">0</div>
+</div>
+
+</div>
+
+<div class="menu">
+
+<button onclick="showPage('attendance')">
+🕘<br>الحضور والانصراف
+</button>
+
+<button onclick="showPage('employees')">
+👥<br>الموظفين
+</button>
+
+<button onclick="showPage('leave')">
+📅<br>طلبات الإجازة
+</button>
+
+<button onclick="showPage('kpi')">
+📊<br>KPI
+</button>
+
+<button onclick="showPage('penalties')">
+⚠️<br>الجزاءات
+</button>
+
+<button onclick="showPage('kaizenAdmin')">
+💡<br>Kaizen
+</button>
+
+<button onclick="showPage('notifications')">
+🔔<br>الإشعارات
+</button>
+
+<button onclick="showPage('settings')">
+⚙️<br>الإعدادات
+</button>
+
+</div>
+
+<div class="card" style="margin-top:15px">
+
+<button class="btn danger" onclick="logout()">
+تسجيل الخروج
+</button>
+
+</div>
+
+</div>
+
+
+<!-- EMPLOYEE -->
+
+<div id="employeeHome" class="hidden">
+
+<div class="topbar">
+
+<h2>حسابي</h2>
+
+<span class="badge">Employee</span>
+
+</div>
+
+<div class="card">
+
+<h2 id="employeeWelcome"></h2>
+
+<p id="employeeToday"></p>
+
+<div class="timeBox" id="employeeAttendance">
+لا يوجد تسجيل حضور اليوم
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="stat">
+<div class="stat-title">📊 KPI</div>
+<div class="stat-number">
+<span id="myKpi">0</span>%
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">⚠️ الجزاءات</div>
+<div class="stat-number">
+<span id="myPenaltyCount">0</span>
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">💡 أفكاري</div>
+<div class="stat-number">
+<span id="myKaizenCount">0</span>
+</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">🔔 الإشعارات</div>
+<div class="stat-number">
+<span id="myNotificationCount">0</span>
+</div>
+</div>
+
+</div>
+
+<div class="menu">
+
+<button onclick="showPage('myAttendance')">
+🕘<br>حضوري
+</button>
+
+<button onclick="showPage('myLeave')">
+📅<br>إجازاتي
+</button>
+
+<button onclick="showPage('myKpiPage')">
+📊<br>KPI
+</button>
+
+<button onclick="showPage('myPenalties')">
+⚠️<br>جزاءاتي
+</button>
+
+<button onclick="showPage('myKaizen')">
+💡<br>Kaizen
+</button>
+
+<button onclick="showPage('notifications')">
+🔔<br>الإشعارات
+</button>
+
+<button onclick="showPage('changePassword')">
+🔐<br>تغيير كلمة المرور
+</button>
+
+</div>
+
+<div class="card">
+
+<button class="btn danger" onclick="logout()">
+تسجيل الخروج
+</button>
+
+</div>
+
+</div>
+
+
+<!-- HR -->
+
+<div id="hrDashboard" class="hidden">
+
+<div class="topbar">
+
+<h2>HR Dashboard</h2>
+
+<span class="badge">قراءة فقط</span>
+
+</div>
+
+<div class="grid">
+
+<div class="stat">
+<div class="stat-title">👥 الموظفين</div>
+<div class="stat-number" id="hrEmployees">0</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">✅ حضور اليوم</div>
+<div class="stat-number" id="hrPresent">0</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">📊 KPI</div>
+<div class="stat-number">91%</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">⚠️ الجزاءات</div>
+<div class="stat-number" id="hrPenalties">0</div>
+</div>
+
+</div>
+
+<div class="menu">
+
+<button onclick="showPage('hrAttendance')">
+🕘<br>الحضور
+</button>
+
+<button onclick="showPage('hrKpi')">
+📊<br>KPI
+</button>
+
+<button onclick="showPage('hrPenalties')">
+⚠️<br>الجزاءات
+</button>
+
+<button onclick="showPage('kaizenAdmin')">
+💡<br>Kaizen
+</button>
+
+</div>
+
+<div class="card">
+
+<button class="btn danger" onclick="logout()">
+تسجيل الخروج
+</button>
+
+</div>
+
+</div>
+
+
+<!-- VIEWER -->
+
+<div id="viewerDashboard" class="hidden">
+
+<div class="topbar">
+
+<h2>لوحة القراءة</h2>
+
+<span class="badge">Viewer</span>
+
+</div>
+
+<div class="card">
+
+<p>
+صلاحيات القراءة فقط.
+</p>
+
+</div>
+
+<div class="menu">
+
+<button onclick="showPage('hrAttendance')">
+🕘<br>الحضور
+</button>
+
+<button onclick="showPage('hrKpi')">
+📊<br>KPI
+</button>
+
+<button onclick="showPage('hrPenalties')">
+⚠️<br>الجزاءات
+</button>
+
+<button onclick="showPage('kaizenAdmin')">
+💡<br>Kaizen
+</button>
+
+</div>
+
+<div class="card">
+
+<button class="btn danger" onclick="logout()">
+تسجيل الخروج
+</button>
+
+</div>
+
+</div>
+
+
+<!-- EMPLOYEES -->
+
+<div id="employees" class="hidden">
+
+<div class="topbar">
+
+<h2>إدارة الموظفين</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>إضافة موظف</h3>
+
+<input id="newCode" placeholder="الكود الوظيفي">
+
+<input id="newName" placeholder="اسم الموظف">
+
+<input id="newPassword" placeholder="كلمة المرور">
+
+<input id="newDept" placeholder="القسم">
+
+<input id="newPosition" placeholder="الوظيفة">
+
+<button class="btn success" onclick="addEmployee()">
+➕ إضافة الموظف
+</button>
+
+</div>
+
+<div id="employeesList"></div>
+
+</div>
+
+
+<!-- ATTENDANCE -->
+
+<div id="attendance" class="hidden">
+
+<div class="topbar">
+
+<h2>تسجيل الحضور</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>وقت التسجيل الجماعي</h3>
+
+<label>التاريخ</label>
+
+<input id="attendanceDate" type="date">
+
+<label>وقت الحضور الأساسي</label>
+
+<input id="attendanceTime" type="time" value="08:00">
+
+<p class="small">
+اكتب الوقت الفعلي للحضور مرة واحدة.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>اختيار الموظفين</h3>
+
+<div id="attendanceEmployees"></div>
+
+<button class="btn success" onclick="bulkAttendance()">
+✅ تسجيل حضور المحددين
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>تسجيل حالة فردية</h3>
+
+<div id="individualAttendance"></div>
+
+</div>
+
+</div>
+
+
+<!-- LEAVE -->
+
+<div id="leave" class="hidden">
+
+<div class="topbar">
+
+<h2>طلبات الإجازة</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div id="leaveArea"></div>
+
+</div>
+
+
+<!-- KPI -->
+
+<div id="kpi" class="hidden">
+
+<div class="topbar">
+
+<h2>KPI</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div id="kpiArea"></div>
+
+</div>
+
+
+<!-- PENALTIES -->
+
+<div id="penalties" class="hidden">
+
+<div class="topbar">
+
+<h2>الجزاءات والمخالفات</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div id="penaltyArea"></div>
+
+</div>
+
+
+<!-- KAIZEN ADMIN -->
+
+<div id="kaizenAdmin" class="hidden">
+
+<div class="topbar">
+
+<h2>💡 Kaizen Ideas</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div id="kaizenAdminArea"></div>
+
+</div>
+
+
+<!-- NOTIFICATIONS -->
+
+<div id="notifications" class="hidden">
+
+<div class="topbar">
+
+<h2>🔔 الإشعارات</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div id="notificationArea"></div>
+
+</div>
+
+
+<!-- SETTINGS -->
+
+<div id="settings" class="hidden">
+
+<div class="topbar">
+
+<h2>⚙️ الإعدادات</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>تغيير كلمة مرور Admin</h3>
+
+<input id="adminOldPass"
+type="password"
+placeholder="كلمة المرور الحالية">
+
+<input id="adminNewPass"
+type="password"
+placeholder="كلمة المرور الجديدة">
+
+<button class="btn" onclick="changeAdminPassword()">
+تغيير كلمة المرور
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>إضافة حساب Viewer</h3>
+
+<input id="viewerCode" placeholder="كود المستخدم">
+
+<input id="viewerName" placeholder="اسم المستخدم">
+
+<input id="viewerPassword"
+placeholder="كلمة المرور">
+
+<button class="btn success" onclick="addViewer()">
+إضافة Viewer
+</button>
+
+</div>
+
+</div>
+
+
+<!-- MY ATTENDANCE -->
+
+<div id="myAttendance" class="hidden">
+
+<div class="topbar">
+
+<h2>حضوري</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div id="myAttendanceArea"></div>
+
+</div>
+
+
+<!-- MY LEAVE -->
+
+<div id="myLeave" class="hidden">
+
+<div class="topbar">
+
+<h2>إجازاتي</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>طلب إجازة جديد</h3>
+
+<input id="myLeaveFrom" type="date">
+
+<input id="myLeaveTo" type="date">
+
+<textarea id="myLeaveReason"
+placeholder="سبب الإجازة"></textarea>
+
+<button class="btn" onclick="submitMyLeave()">
+إرسال طلب الإجازة
+</button>
+
+</div>
+
+<div id="myLeavesList"></div>
+
+</div>
+
+
+<!-- MY KPI -->
+
+<div id="myKpiPage" class="hidden">
+
+<div class="topbar">
+
+<h2>📊 KPI الخاص بي</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div class="card">
+
+<h3 id="myKpiName"></h3>
+
+<div class="kpiBar">
+<div id="myKpiBar"></div>
+</div>
+
+<h2>
+<span id="myKpiNumber">0</span>%
+</h2>
+
+</div>
+
+</div>
+
+
+<!-- MY PENALTIES -->
+
+<div id="myPenalties" class="hidden">
+
+<div class="topbar">
+
+<h2>⚠️ جزاءاتي</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div id="myPenaltiesArea"></div>
+
+</div>
+
+
+<!-- MY KAIZEN -->
+
+<div id="myKaizen" class="hidden">
+
+<div class="topbar">
+
+<h2>💡 Kaizen</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>إضافة فكرة تحسين جديدة</h3>
+
+<label>عنوان الفكرة</label>
+
+<input id="kaizenTitle"
+placeholder="مثال: تقليل وقت تجهيز الخط">
+
+<label>شرح الفكرة</label>
+
+<textarea id="kaizenDescription"
+placeholder="اشرح فكرتك بالتفصيل..."></textarea>
+
+<h3>الفكرة هتأثر على إيه؟</h3>
+
+<label class="checkrow">
+<input type="checkbox"
+class="kaizenImpact"
+value="الجودة">
+الجودة
+</label>
+
+<label class="checkrow">
+<input type="checkbox"
+class="kaizenImpact"
+value="الإنتاج">
+الإنتاج
+</label>
+
+<label class="checkrow">
+<input type="checkbox"
+class="kaizenImpact"
+value="السلامة">
+السلامة
+</label>
+
+<label class="checkrow">
+<input type="checkbox"
+class="kaizenImpact"
+value="الوقت">
+الوقت
+</label>
+
+<label class="checkrow">
+<input type="checkbox"
+class="kaizenImpact"
+value="التكلفة">
+التكلفة
+</label>
+
+<label class="checkrow">
+<input type="checkbox"
+class="kaizenImpact"
+value="الروح المعنوية">
+الروح المعنوية
+</label>
+
+<label class="checkrow">
+<input type="checkbox"
+class="kaizenImpact"
+value="إدارة اليوم">
+إدارة اليوم
+</label>
+
+<button class="btn success"
+onclick="submitKaizen()">
+💡 إرسال فكرة التحسين
+</button>
+
+</div>
+
+<div id="myKaizenArea"></div>
+
+</div>
+
+
+<!-- CHANGE PASSWORD -->
+
+<div id="changePassword" class="hidden">
+
+<div class="topbar">
+
+<h2>🔐 تغيير كلمة المرور</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div class="card">
+
+<input id="oldEmployeePass"
+type="password"
+placeholder="كلمة المرور الحالية">
+
+<input id="newEmployeePass"
+type="password"
+placeholder="كلمة المرور الجديدة">
+
+<button class="btn" onclick="changeEmployeePassword()">
+حفظ كلمة المرور الجديدة
+</button>
+
+</div>
+
+</div>
+
+
+<!-- HR ATTENDANCE -->
+
+<div id="hrAttendance" class="hidden">
+
+<div class="topbar">
+
+<h2>الحضور والانصراف</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div id="hrAttendanceArea"></div>
+
+</div>
+
+
+<!-- HR KPI -->
+
+<div id="hrKpi" class="hidden">
+
+<div class="topbar">
+
+<h2>KPI</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div id="hrKpiArea"></div>
+
+</div>
+
+
+<!-- HR PENALTIES -->
+
+<div id="hrPenalties" class="hidden">
+
+<div class="topbar">
+
+<h2>الجزاءات</h2>
+
+<button class="btn back" onclick="backHome()">
+رجوع
+</button>
+
+</div>
+
+<div id="hrPenaltyArea"></div>
+
+</div>
+
+
+</div>
+</section>
+
+
+<script>
+
+/* ================= DATA ================= */
+
+let currentUser=null;
+
+let adminPassword=
+localStorage.getItem("adminPassword") || "1234";
+
+let employees=
+JSON.parse(localStorage.getItem("employees") || "[]");
+
+let users=
+JSON.parse(localStorage.getItem("users") || "[]");
+
+let attendance=
+JSON.parse(localStorage.getItem("attendance") || "[]");
+
+let leaves=
+JSON.parse(localStorage.getItem("leaves") || "[]");
+
+let penalties=
+JSON.parse(localStorage.getItem("penalties") || "[]");
+
+let notifications=
+JSON.parse(localStorage.getItem("notifications") || "[]");
+
+let kpis=
+JSON.parse(localStorage.getItem("kpis") || "{}");
+
+let kaizens=
+JSON.parse(localStorage.getItem("kaizens") || "[]");
+
+
+function save(){
+
+localStorage.setItem("adminPassword",adminPassword);
+localStorage.setItem("employees",JSON.stringify(employees));
+localStorage.setItem("users",JSON.stringify(users));
+localStorage.setItem("attendance",JSON.stringify(attendance));
+localStorage.setItem("leaves",JSON.stringify(leaves));
+localStorage.setItem("penalties",JSON.stringify(penalties));
+localStorage.setItem("notifications",JSON.stringify(notifications));
+localStorage.setItem("kpis",JSON.stringify(kpis));
+localStorage.setItem("kaizens",JSON.stringify(kaizens));
+
+}
+
+
+/* ================= LOGIN ================= */
+
+function login(){
+
+const code=
+document.getElementById("loginCode").value.trim();
+
+const password=
+document.getElementById("loginPassword").value;
+
+let user=null;
+
+if(code==="ADMIN" && password===adminPassword){
+
+user={
+code:"ADMIN",
+name:"Administrator",
+role:"Admin"
+};
+
+}
+
+else if(code==="SUP" && password==="1234"){
+
+user={
+code:"SUP",
+name:"Production Supervisor",
+role:"Supervisor"
+};
+
+}
+
+else if(code==="HR" && password==="1234"){
+
+user={
+code:"HR",
+name:"HR",
+role:"HR"
+};
+
+}
+
+else{
+
+user=users.find(
+u=>u.code===code &&
+u.password===password
+);
+
+}
+
+if(!user){
+
+user=employees.find(
+e=>e.code===code &&
+e.password===password
+);
+
+if(user)user.role="Employee";
+
+}
+
+if(!user){
+
+document.getElementById("loginError")
+.innerText="الكود أو كلمة المرور غير صحيحة";
+
+return;
+
+}
+
+currentUser=user;
+
+document.getElementById("loginPage")
+.classList.add("hidden");
+
+document.getElementById("appPage")
+.classList.remove("hidden");
+
+document.getElementById("welcome")
+.innerText=
+"مرحبًا، "+user.name;
+
+openDashboard();
+
+}
+
+
+/* ================= NAVIGATION ================= */
+
+function hideAll(){
+
+const ids=[
+"managerDashboard",
+"employeeHome",
+"hrDashboard",
+"viewerDashboard",
+"employees",
+"attendance",
+"leave",
+"kpi",
+"penalties",
+"kaizenAdmin",
+"notifications",
+"settings",
+"myAttendance",
+"myLeave",
+"myKpiPage",
+"myPenalties",
+"myKaizen",
+"changePassword",
+"hrAttendance",
+"hrKpi",
+"hrPenalties"
+];
+
+ids.forEach(id=>{
+
+const el=document.getElementById(id);
+
+if(el)el.classList.add("hidden");
+
+});
+
+}
+
+
+function openDashboard(){
+
+hideAll();
+
+if(currentUser.role==="Employee"){
+
+document.getElementById("employeeHome")
+.classList.remove("hidden");
+
+renderEmployeeHome();
+
+}
+
+else if(currentUser.role==="HR"){
+
+document.getElementById("hrDashboard")
+.classList.remove("hidden");
+
+renderHRDashboard();
+
+}
+
+else if(currentUser.role==="Viewer"){
+
+document.getElementById("viewerDashboard")
+.classList.remove("hidden");
+
+}
+
+else{
+
+document.getElementById("managerDashboard")
+.classList.remove("hidden");
+
+document.getElementById("roleBadge")
+.innerText=currentUser.role;
+
+renderDashboard();
+
+}
+
+}
+
+
+function backHome(){
+
+openDashboard();
+
+}
+
+
+function showPage(page){
+
+hideAll();
+
+const el=document.getElementById(page);
+
+if(el)el.classList.remove("hidden");
+
+if(page==="employees")renderEmployees();
+if(page==="attendance")renderAttendance();
+if(page==="leave")renderLeaves();
+if(page==="kpi")renderKPI();
+if(page==="penalties")renderPenalties();
+if(page==="kaizenAdmin")renderKaizenAdmin();
+if(page==="notifications")renderNotifications();
+if(page==="myAttendance")renderMyAttendance();
+if(page==="myLeave")renderMyLeaves();
+if(page==="myKpiPage")renderMyKPI();
+if(page==="myPenalties")renderMyPenalties();
+if(page==="myKaizen")renderMyKaizen();
+if(page==="hrAttendance")renderHRAttendance();
+if(page==="hrKpi")renderHRKPI();
+if(page==="hrPenalties")renderHRPenalties();
+
+}
+
+
+/* ================= DASHBOARD ================= */
+
+function renderDashboard(){
+
+document.getElementById("employeeCount")
+.innerText=employees.length;
+
+const today=
+new Date().toISOString().slice(0,10);
+
+documenbackground:#075BFF;color:white;
 display:flex;align-items:center;justify-content:center;
 font-size:35px;margin:auto auto 15px
 }
