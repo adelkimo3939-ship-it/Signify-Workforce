@@ -14,23 +14,19 @@
 
 body{
   margin:0;
-  background:#f4f6fa;
+  background:#f4f7fb;
   color:#172033;
 }
 
+.hidden{display:none!important}
+
 button,input,select,textarea{
-  font:inherit;
+  font-family:inherit;
 }
 
 button{
   cursor:pointer;
 }
-
-.hidden{
-  display:none !important;
-}
-
-/* LOGIN */
 
 .login-page{
   min-height:100vh;
@@ -38,142 +34,158 @@ button{
   align-items:center;
   justify-content:center;
   padding:20px;
+  background:linear-gradient(135deg,#075BFF,#00358f);
 }
 
-.login-card{
+.login-box{
   width:100%;
   max-width:420px;
   background:white;
-  padding:30px 22px;
   border-radius:25px;
-  box-shadow:0 8px 30px rgba(0,0,0,.08);
+  padding:30px 22px;
+  box-shadow:0 15px 45px rgba(0,0,0,.25);
 }
 
 .logo{
-  width:80px;
-  height:80px;
-  background:#075BFF;
-  color:white;
-  border-radius:24px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:0 auto 18px;
-  font-size:40px;
-  font-weight:bold;
-}
-
-.login-card h1{
   text-align:center;
-  margin:0;
+  font-size:30px;
+  font-weight:bold;
+  color:#075BFF;
+  margin-bottom:5px;
 }
 
 .subtitle{
   text-align:center;
-  color:#667085;
-  margin:8px 0 25px;
+  color:#777;
+  margin-bottom:25px;
 }
 
-/* GENERAL */
+label{
+  display:block;
+  margin:12px 0 7px;
+  font-weight:bold;
+}
 
-.header{
+input,select,textarea{
+  width:100%;
+  border:1px solid #d7dce5;
+  border-radius:12px;
+  padding:13px;
+  font-size:16px;
+  background:#fff;
+}
+
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.primary{
+  width:100%;
+  border:0;
   background:#075BFF;
   color:white;
-  padding:24px 20px;
-  border-radius:0 0 25px 25px;
+  padding:14px;
+  border-radius:13px;
+  font-size:17px;
+  margin-top:18px;
 }
 
-.header h1{
+.secondary{
+  width:100%;
+  border:1px solid #075BFF;
+  background:white;
+  color:#075BFF;
+  padding:12px;
+  border-radius:13px;
+  font-size:16px;
+  margin-top:10px;
+}
+
+.danger{
+  background:#e53935!important;
+  color:white!important;
+  border:0!important;
+}
+
+.success{
+  background:#16a05d!important;
+  color:white!important;
+  border:0!important;
+}
+
+.app{
+  min-height:100vh;
+}
+
+.topbar{
+  background:#075BFF;
+  color:white;
+  padding:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.topbar h2{
   margin:0;
-  font-size:25px;
+  font-size:21px;
 }
 
-.header p{
-  margin:7px 0 0;
-  opacity:.9;
+.logout{
+  background:white;
+  color:#075BFF;
+  border:0;
+  padding:9px 14px;
+  border-radius:10px;
 }
 
 .container{
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
   padding:18px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
 }
 
 .card{
   background:white;
   border-radius:18px;
   padding:18px;
-  margin-bottom:14px;
   box-shadow:0 3px 14px rgba(0,0,0,.06);
 }
 
-input,select,textarea{
-  width:100%;
-  border:1px solid #d9dee8;
-  border-radius:12px;
-  padding:13px;
-  margin:6px 0 12px;
-  background:white;
-}
-
-textarea{
-  min-height:100px;
-  resize:vertical;
-}
-
-label{
-  font-weight:bold;
+.card-title{
+  color:#697386;
   font-size:14px;
 }
 
-.btn{
-  width:100%;
-  border:0;
-  border-radius:13px;
-  padding:14px;
-  margin:5px 0;
-  background:#075BFF;
-  color:white;
+.number{
+  font-size:29px;
+  font-weight:bold;
+  margin-top:8px;
+  color:#075BFF;
 }
 
-.btn.secondary{
+.section{
+  margin-top:20px;
+}
+
+.section h3{
+  margin-bottom:12px;
+}
+
+.panel{
   background:white;
-  color:#075BFF;
-  border:1px solid #075BFF;
-}
-
-.btn.success{
-  background:#188038;
-}
-
-.btn.danger{
-  background:#d93025;
-}
-
-.btn.small-btn{
-  width:auto;
-  padding:9px 14px;
-}
-
-.topbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
+  padding:18px;
+  border-radius:18px;
+  box-shadow:0 3px 14px rgba(0,0,0,.06);
   margin-bottom:15px;
-}
-
-.topbar h2{
-  margin:0;
-}
-
-.badge{
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:20px;
-  background:#eef3ff;
-  color:#075BFF;
-  font-size:13px;
 }
 
 .grid{
@@ -182,146 +194,112 @@ label{
   gap:12px;
 }
 
-.stat{
-  background:white;
-  padding:18px;
-  border-radius:17px;
-  box-shadow:0 3px 12px rgba(0,0,0,.06);
-}
-
-.stat-title{
-  color:#667085;
-  font-size:14px;
-}
-
-.stat-number{
-  font-size:28px;
-  font-weight:bold;
-  margin-top:8px;
-}
-
 .menu{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:10px;
-  margin-top:15px;
 }
 
 .menu button{
-  background:white;
+  padding:15px;
   border:0;
-  border-radius:17px;
-  padding:20px 10px;
-  box-shadow:0 3px 12px rgba(0,0,0,.06);
-  color:#172033;
-  font-weight:bold;
+  border-radius:14px;
+  background:white;
+  color:#075BFF;
+  font-size:16px;
+  box-shadow:0 3px 12px rgba(0,0,0,.07);
 }
 
-.row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  padding:13px 0;
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:12px;
+  background:white;
+}
+
+th,td{
   border-bottom:1px solid #eee;
+  padding:11px 7px;
+  text-align:center;
+  font-size:14px;
 }
 
-.small{
-  font-size:13px;
-  color:#667085;
+th{
+  background:#f0f4fa;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  font-size:12px;
+  background:#e9eef8;
 }
 
 .notice{
-  background:#fff8e1;
-  border-right:5px solid #f9ab00;
-  padding:14px;
-  border-radius:12px;
+  background:#fff6d8;
+  border-right:5px solid #f5b400;
+  padding:12px;
+  border-radius:10px;
   margin-bottom:10px;
 }
 
-.success-box{
-  background:#eaf7ee;
-  border-right:5px solid #188038;
-  padding:14px;
-  border-radius:12px;
-  margin-bottom:10px;
+.empty{
+  text-align:center;
+  color:#777;
+  padding:20px;
 }
 
-.danger-box{
-  background:#fdecec;
-  border-right:5px solid #d93025;
-  padding:14px;
-  border-radius:12px;
-  margin-bottom:10px;
-}
-
-.kaizen-box{
-  background:#f2f6ff;
-  border-right:5px solid #075BFF;
-  padding:15px;
-  border-radius:13px;
+.back{
   margin-bottom:12px;
 }
 
-.impact{
-  display:inline-block;
-  background:#e9efff;
-  color:#075BFF;
-  padding:7px 10px;
-  border-radius:20px;
-  margin:3px;
-  font-size:13px;
-}
-
-.check{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:11px;
-  border-bottom:1px solid #eee;
-}
-
-.check input{
-  width:20px;
-  height:20px;
-  margin:0;
-}
-
-.time-box{
-  background:#eef3ff;
-  border-radius:15px;
-  padding:20px;
-  text-align:center;
-  font-size:25px;
-  font-weight:bold;
-}
-
-.kpi-bar{
-  height:14px;
-  background:#e5e7eb;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.kpi-fill{
-  height:100%;
-  background:#075BFF;
-}
-
-.error{
-  color:#d93025;
-  text-align:center;
-  min-height:20px;
+.kaizen-impact{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
   margin-top:8px;
 }
 
-@media(min-width:700px){
+.impact{
+  border:1px solid #ddd;
+  padding:11px;
+  border-radius:10px;
+  background:white;
+}
+
+.impact input{
+  width:auto;
+  margin-left:6px;
+}
+
+@media(max-width:700px){
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
   .grid{
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:1fr;
   }
 
   .menu{
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:1fr;
+  }
+
+  .topbar{
+    padding:14px;
+  }
+
+  .container{
+    padding:12px;
+  }
+
+  table{
+    font-size:12px;
+  }
+
+  th,td{
+    padding:8px 4px;
   }
 }
 </style>
@@ -329,728 +307,2131 @@ label{
 
 <body>
 
-<!-- ================= LOGIN ================= -->
-
+<!-- LOGIN -->
 <div id="loginPage" class="login-page">
 
-  <div class="login-card">
+  <div class="login-box">
 
-    <div class="logo">S</div>
-
-    <h1>Signify Workforce</h1>
+    <div class="logo">Signify Workforce</div>
 
     <div class="subtitle">
       نظام إدارة الموظفين والحضور والـ KPI
     </div>
 
-    <label>الكود الوظيفي</label>
+    <label>نوع المستخدم</label>
+
+    <select id="loginType">
+      <option value="employee">موظف</option>
+      <option value="admin">مشرف</option>
+      <option value="viewer">قراءة فقط</option>
+    </select>
+
+    <label id="codeLabel">كود الموظف</label>
+
     <input
       id="loginCode"
       type="text"
-      placeholder="مثال: EMP001"
-      autocomplete="username"
+      placeholder="مثال: 1001"
     >
 
     <label>كلمة المرور</label>
+
     <input
       id="loginPassword"
       type="password"
       placeholder="كلمة المرور"
-      autocomplete="current-password"
     >
 
-    <button
-      id="loginButton"
-      class="btn"
-      type="button"
-      onclick="login()"
-    >
-      دخول
+    <button class="primary" onclick="login()">
+      تسجيل الدخول
     </button>
 
-    <div id="loginError" class="error"></div>
+    <div id="loginMessage"
+         style="color:#e53935;text-align:center;margin-top:12px">
+    </div>
 
   </div>
 
 </div>
 
 
-<!-- ================= APP ================= -->
+<!-- APP -->
+<div id="app" class="app hidden">
 
-<div id="appPage" class="hidden">
+  <div class="topbar">
 
-  <div class="header">
-    <h1>Signify Workforce</h1>
-    <p id="welcomeText"></p>
+    <div>
+      <h2>Signify Workforce</h2>
+      <div id="welcome"></div>
+    </div>
+
+    <button class="logout" onclick="logout()">
+      خروج
+    </button>
+
   </div>
 
   <div class="container">
 
+    <!-- ADMIN -->
+    <div id="adminPage" class="hidden">
 
-    <!-- ========== ADMIN / SUPERVISOR ========== -->
+      <div class="cards">
 
-    <div id="managerHome" class="hidden">
-
-      <div class="topbar">
-        <h2>لوحة القيادة</h2>
-        <span id="managerRole" class="badge"></span>
-      </div>
-
-      <div class="grid">
-
-        <div class="stat">
-          <div class="stat-title">👥 الموظفين</div>
-          <div id="dashEmployees" class="stat-number">0</div>
+        <div class="card">
+          <div class="card-title">الموظفين</div>
+          <div class="number" id="totalEmployees">0</div>
         </div>
 
-        <div class="stat">
-          <div class="stat-title">✅ الحضور</div>
-          <div id="dashPresent" class="stat-number">0</div>
+        <div class="card">
+          <div class="card-title">الحضور اليوم</div>
+          <div class="number" id="presentCount">0</div>
         </div>
 
-        <div class="stat">
-          <div class="stat-title">❌ الغياب</div>
-          <div id="dashAbsent" class="stat-number">0</div>
+        <div class="card">
+          <div class="card-title">الغياب اليوم</div>
+          <div class="number" id="absentCount">0</div>
         </div>
 
-        <div class="stat">
-          <div class="stat-title">⏰ المتأخرين</div>
-          <div id="dashLate" class="stat-number">0</div>
+        <div class="card">
+          <div class="card-title">التأخير اليوم</div>
+          <div class="number" id="lateCount">0</div>
         </div>
 
       </div>
 
-      <div class="menu">
+      <div class="section">
 
-        <button onclick="showPage('attendancePage')">
-          🕘<br>الحضور والانصراف
-        </button>
+        <div class="menu">
 
-        <button onclick="showPage('employeesPage')">
-          👥<br>الموظفين
-        </button>
+          <button onclick="showAdminSection('attendance')">
+            🕘 الحضور والانصراف
+          </button>
 
-        <button onclick="showPage('leavePage')">
-          📅<br>طلبات الإجازة
-        </button>
+          <button onclick="showAdminSection('employees')">
+            👥 الموظفين
+          </button>
 
-        <button onclick="showPage('kpiPage')">
-          📊<br>KPI
-        </button>
+          <button onclick="showAdminSection('kpi')">
+            📊 KPI
+          </button>
 
-        <button onclick="showPage('penaltyPage')">
-          ⚠️<br>الجزاءات
-        </button>
+          <button onclick="showAdminSection('penalties')">
+            ⚠️ التأخيرات والجزاءات
+          </button>
 
-        <button onclick="showPage('kaizenAdminPage')">
-          💡<br>Kaizen
-        </button>
+          <button onclick="showAdminSection('leaveRequests')">
+            📝 طلبات الإجازة
+          </button>
 
-        <button onclick="showPage('notificationPage')">
-          🔔<br>الإشعارات
-        </button>
+          <button onclick="showAdminSection('kaizen')">
+            💡 Kaizen
+          </button>
 
-        <button onclick="showPage('settingsPage')">
-          ⚙️<br>الإعدادات
-        </button>
+          <button onclick="showAdminSection('password')">
+            🔐 تغيير باسورد المشرف
+          </button>
+
+        </div>
 
       </div>
 
-      <div class="card">
-        <button class="btn danger" onclick="logout()">
-          تسجيل الخروج
-        </button>
-      </div>
+      <div id="adminContent" class="section"></div>
 
     </div>
 
 
-    <!-- ========== EMPLOYEE HOME ========== -->
+    <!-- VIEWER -->
+    <div id="viewerPage" class="hidden">
 
-    <div id="employeeHome" class="hidden">
+      <div class="panel">
 
-      <div class="topbar">
-        <h2>حسابي</h2>
-        <span class="badge">Employee</span>
-      </div>
+        <h3>👁️ لوحة القراءة فقط</h3>
 
-      <div class="card">
-
-        <h2 id="employeeName"></h2>
-
-        <p id="employeeInfo" class="small"></p>
-
-        <div id="employeeTodayAttendance" class="time-box">
-          لا يوجد تسجيل حضور اليوم
-        </div>
-
-      </div>
-
-      <div class="grid">
-
-        <div class="stat">
-          <div class="stat-title">📊 KPI</div>
-          <div class="stat-number">
-            <span id="employeeKpi">0</span>%
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-title">⚠️ الجزاءات</div>
-          <div class="stat-number">
-            <span id="employeePenaltyCount">0</span>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-title">💡 Kaizen</div>
-          <div class="stat-number">
-            <span id="employeeKaizenCount">0</span>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-title">🔔 الإشعارات</div>
-          <div class="stat-number">
-            <span id="employeeNotificationCount">0</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="menu">
-
-        <button onclick="showPage('myAttendancePage')">
-          🕘<br>حضوري
-        </button>
-
-        <button onclick="showPage('myLeavePage')">
-          📅<br>إجازاتي
-        </button>
-
-        <button onclick="showPage('myKpiPage')">
-          📊<br>KPI
-        </button>
-
-        <button onclick="showPage('myPenaltyPage')">
-          ⚠️<br>جزاءاتي
-        </button>
-
-        <button onclick="showPage('myKaizenPage')">
-          💡<br>Kaizen
-        </button>
-
-        <button onclick="showPage('notificationPage')">
-          🔔<br>الإشعارات
-        </button>
-
-        <button onclick="showPage('changePasswordPage')">
-          🔐<br>تغيير كلمة المرور
-        </button>
-
-      </div>
-
-      <div class="card">
-        <button class="btn danger" onclick="logout()">
-          تسجيل الخروج
-        </button>
-      </div>
-
-    </div>
-
-
-    <!-- ========== HR ========== -->
-
-    <div id="hrHome" class="hidden">
-
-      <div class="topbar">
-        <h2>HR Dashboard</h2>
-        <span class="badge">قراءة فقط</span>
-      </div>
-
-      <div class="grid">
-
-        <div class="stat">
-          <div class="stat-title">👥 الموظفين</div>
-          <div id="hrEmployees" class="stat-number">0</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-title">✅ حضور اليوم</div>
-          <div id="hrPresent" class="stat-number">0</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-title">📊 KPI</div>
-          <div class="stat-number">—</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-title">⚠️ الجزاءات</div>
-          <div id="hrPenalties" class="stat-number">0</div>
-        </div>
-
-      </div>
-
-      <div class="menu">
-
-        <button onclick="showPage('hrAttendancePage')">
-          🕘<br>الحضور
-        </button>
-
-        <button onclick="showPage('hrKpiPage')">
-          📊<br>KPI
-        </button>
-
-        <button onclick="showPage('hrPenaltyPage')">
-          ⚠️<br>الجزاءات
-        </button>
-
-        <button onclick="showPage('kaizenAdminPage')">
-          💡<br>Kaizen
-        </button>
-
-      </div>
-
-      <div class="card">
-        <button class="btn danger" onclick="logout()">
-          تسجيل الخروج
-        </button>
-      </div>
-
-    </div>
-
-
-    <!-- ========== VIEWER ========== -->
-
-    <div id="viewerHome" class="hidden">
-
-      <div class="topbar">
-        <h2>لوحة القراءة</h2>
-        <span class="badge">Viewer</span>
-      </div>
-
-      <div class="card">
         <p>
-          هذا الحساب للقراءة فقط.
+          هذه الصلاحية تسمح بالاطلاع على البيانات فقط
+          بدون إضافة أو تعديل.
         </p>
+
+      </div>
+
+      <div id="viewerContent"></div>
+
+    </div>
+
+
+    <!-- EMPLOYEE -->
+    <div id="employeePage" class="hidden">
+
+      <div class="panel">
+
+        <h3 id="employeeName"></h3>
+
+        <div id="employeeNotifications"></div>
+
       </div>
 
       <div class="menu">
 
-        <button onclick="showPage('hrAttendancePage')">
-          🕘<br>الحضور
+        <button onclick="employeeAttendance()">
+          🕘 حالة حضوري
         </button>
 
-        <button onclick="showPage('hrKpiPage')">
-          📊<br>KPI
+        <button onclick="employeeLeave()">
+          📝 طلب إجازة
         </button>
 
-        <button onclick="showPage('hrPenaltyPage')">
-          ⚠️<br>الجزاءات
+        <button onclick="employeeKaizen()">
+          💡 Kaizen
         </button>
 
-        <button onclick="showPage('kaizenAdminPage')">
-          💡<br>Kaizen
+        <button onclick="employeePassword()">
+          🔐 تغيير الباسورد
         </button>
 
       </div>
 
-      <div class="card">
-        <button class="btn danger" onclick="logout()">
-          تسجيل الخروج
-        </button>
-      </div>
+      <div id="employeeContent" class="section"></div>
 
     </div>
 
+  </div>
 
-    <!-- ========== EMPLOYEES PAGE ========== -->
+</div>
 
-    <div id="employeesPage" class="hidden">
 
-      <div class="topbar">
-        <h2>👥 الموظفين</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
+<script>
+
+/* =========================
+   DATA
+========================= */
+
+let employees =
+  JSON.parse(localStorage.getItem("sw_employees")) || [];
+
+let attendance =
+  JSON.parse(localStorage.getItem("sw_attendance")) || [];
+
+let penalties =
+  JSON.parse(localStorage.getItem("sw_penalties")) || [];
+
+let leaves =
+  JSON.parse(localStorage.getItem("sw_leaves")) || [];
+
+let kaizens =
+  JSON.parse(localStorage.getItem("sw_kaizens")) || [];
+
+let currentUser = null;
+
+
+/* =========================
+   DEFAULT ADMIN
+========================= */
+
+let admin =
+  JSON.parse(localStorage.getItem("sw_admin"));
+
+if(!admin){
+
+  admin = {
+    code:"admin",
+    password:"1234",
+    name:"مشرف النظام"
+  };
+
+  localStorage.setItem(
+    "sw_admin",
+    JSON.stringify(admin)
+  );
+}
+
+
+/* =========================
+   SAVE
+========================= */
+
+function saveData(){
+
+  localStorage.setItem(
+    "sw_employees",
+    JSON.stringify(employees)
+  );
+
+  localStorage.setItem(
+    "sw_attendance",
+    JSON.stringify(attendance)
+  );
+
+  localStorage.setItem(
+    "sw_penalties",
+    JSON.stringify(penalties)
+  );
+
+  localStorage.setItem(
+    "sw_leaves",
+    JSON.stringify(leaves)
+  );
+
+  localStorage.setItem(
+    "sw_kaizens",
+    JSON.stringify(kaizens)
+  );
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function login(){
+
+  const type =
+    document.getElementById("loginType").value;
+
+  const code =
+    document.getElementById("loginCode").value.trim();
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+  const message =
+    document.getElementById("loginMessage");
+
+  message.innerText="";
+
+  if(!code || !password){
+
+    message.innerText =
+      "اكتب الكود وكلمة المرور";
+
+    return;
+  }
+
+
+  /* ADMIN */
+
+  if(type==="admin"){
+
+    if(
+      code===admin.code &&
+      password===admin.password
+    ){
+
+      currentUser={
+        type:"admin",
+        code:admin.code,
+        name:admin.name
+      };
+
+      openApp();
+
+      return;
+
+    }else{
+
+      message.innerText =
+        "كود المشرف أو كلمة المرور غير صحيحة";
+
+      return;
+    }
+  }
+
+
+  /* EMPLOYEE */
+
+  if(type==="employee"){
+
+    const employee =
+      employees.find(
+        e =>
+        e.code===code &&
+        e.password===password
+      );
+
+    if(!employee){
+
+      message.innerText =
+        "كود الموظف أو كلمة المرور غير صحيحة";
+
+      return;
+    }
+
+    currentUser={
+      type:"employee",
+      code:employee.code,
+      name:employee.name
+    };
+
+    openApp();
+
+    return;
+  }
+
+
+  /* VIEWER */
+
+  if(type==="viewer"){
+
+    /*
+      القراءة فقط:
+      نستخدم نفس بيانات المشرف،
+      ويمكن لاحقاً إضافة أكواد منفصلة
+      للـ HR أو مدير الإنتاج.
+    */
+
+    if(
+      code==="viewer" &&
+      password==="1234"
+    ){
+
+      currentUser={
+        type:"viewer",
+        code:"viewer",
+        name:"قارئ البيانات"
+      };
+
+      openApp();
+
+      return;
+
+    }else{
+
+      message.innerText =
+        "بيانات القراءة فقط غير صحيحة";
+
+      return;
+    }
+  }
+
+}
+
+
+/* =========================
+   OPEN APP
+========================= */
+
+function openApp(){
+
+  document
+    .getElementById("loginPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("app")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("welcome")
+    .innerText =
+      currentUser.name;
+
+  document
+    .getElementById("adminPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("employeePage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("viewerPage")
+    .classList.add("hidden");
+
+
+  if(currentUser.type==="admin"){
+
+    document
+      .getElementById("adminPage")
+      .classList.remove("hidden");
+
+    updateDashboard();
+
+  }
+
+
+  if(currentUser.type==="employee"){
+
+    document
+      .getElementById("employeePage")
+      .classList.remove("hidden");
+
+    loadEmployee();
+
+  }
+
+
+  if(currentUser.type==="viewer"){
+
+    document
+      .getElementById("viewerPage")
+      .classList.remove("hidden");
+
+    loadViewer();
+
+  }
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+  currentUser=null;
+
+  document
+    .getElementById("app")
+    .classList.add("hidden");
+
+  document
+    .getElementById("loginPage")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("loginCode")
+    .value="";
+
+  document
+    .getElementById("loginPassword")
+    .value="";
+
+}
+
+
+/* =========================
+   ADMIN DASHBOARD
+========================= */
+
+function updateDashboard(){
+
+  const today =
+    new Date().toISOString().slice(0,10);
+
+  const present =
+    attendance.filter(
+      a =>
+      a.date===today &&
+      a.status==="حضور"
+    ).length;
+
+  const absent =
+    attendance.filter(
+      a =>
+      a.date===today &&
+      a.status==="غياب"
+    ).length;
+
+  const late =
+    attendance.filter(
+      a =>
+      a.date===today &&
+      a.late
+    ).length;
+
+
+  document.getElementById(
+    "totalEmployees"
+  ).innerText=employees.length;
+
+  document.getElementById(
+    "presentCount"
+  ).innerText=present;
+
+  document.getElementById(
+    "absentCount"
+  ).innerText=absent;
+
+  document.getElementById(
+    "lateCount"
+  ).innerText=late;
+
+}
+
+
+/* =========================
+   ADMIN SECTIONS
+========================= */
+
+function showAdminSection(section){
+
+  const box =
+    document.getElementById("adminContent");
+
+
+  if(section==="employees"){
+
+    box.innerHTML=`
+
+      <div class="panel">
+
+        <h3>➕ إضافة موظف</h3>
+
+        <div class="grid">
+
+          <div>
+            <label>اسم الموظف</label>
+            <input id="newName">
+          </div>
+
+          <div>
+            <label>كود الموظف</label>
+            <input id="newCode">
+          </div>
+
+          <div>
+            <label>الباسورد</label>
+            <input id="newPassword" value="1234">
+          </div>
+
+          <div>
+            <label>القسم</label>
+            <input id="newDepartment">
+          </div>
+
+        </div>
+
+        <button class="primary"
+          onclick="addEmployee()">
+          إضافة الموظف
         </button>
-      </div>
-
-      <div class="card">
-
-        <h3>إضافة موظف</h3>
-
-        <label>الكود</label>
-        <input id="newEmployeeCode" placeholder="EMP001">
-
-        <label>الاسم</label>
-        <input id="newEmployeeName" placeholder="اسم الموظف">
-
-        <label>كلمة المرور</label>
-        <input id="newEmployeePassword" placeholder="كلمة المرور">
-
-        <label>القسم</label>
-        <input id="newEmployeeDepartment" placeholder="القسم">
-
-        <label>الوظيفة</label>
-        <input id="newEmployeePosition" placeholder="الوظيفة">
-
-        <button class="btn success" onclick="addEmployee()">
-          ➕ إضافة الموظف
-        </button>
 
       </div>
 
-      <div id="employeesList"></div>
+      <div class="panel">
 
-    </div>
+        <h3>الموظفين</h3>
 
+        <table>
 
-    <!-- ========== ATTENDANCE PAGE ========== -->
+          <tr>
+            <th>الكود</th>
+            <th>الاسم</th>
+            <th>القسم</th>
+            <th>الباسورد</th>
+            <th>حذف</th>
+          </tr>
 
-    <div id="attendancePage" class="hidden">
+          ${
+            employees.map(e=>`
 
-      <div class="topbar">
-        <h2>🕘 الحضور والانصراف</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
-      </div>
+              <tr>
 
-      <div class="card">
+                <td>${e.code}</td>
 
-        <label>التاريخ</label>
-        <input id="attendanceDate" type="date">
+                <td>${e.name}</td>
 
-        <label>وقت الحضور الأساسي</label>
-        <input id="attendanceBaseTime" type="time" value="08:00">
+                <td>${e.department||"-"}</td>
 
-        <p class="small">
-          حدد الوقت الأساسي مرة واحدة، ثم اختر الموظفين الذين حضروا في هذا الوقت.
-          وأي تأخير يمكن تسجيله بشكل منفصل.
-        </p>
+                <td>${e.password}</td>
 
-      </div>
+                <td>
+                  <button
+                    class="danger"
+                    onclick="deleteEmployee('${e.code}')">
+                    حذف
+                  </button>
+                </td>
 
-      <div class="card">
+              </tr>
 
-        <h3>تسجيل حضور مجموعة</h3>
+            `).join("")
+          }
 
-        <div id="attendanceEmployeeList"></div>
-
-        <button class="btn success" onclick="registerBulkAttendance()">
-          ✅ تسجيل حضور المحددين
-        </button>
-
-      </div>
-
-      <div class="card">
-
-        <h3>تسجيل حالة موظف</h3>
-
-        <div id="individualAttendanceList"></div>
+        </table>
 
       </div>
 
-    </div>
+    `;
+
+    return;
+  }
 
 
-    <!-- ========== LEAVE ADMIN ========== -->
+  if(section==="attendance"){
 
-    <div id="leavePage" class="hidden">
+    box.innerHTML=`
 
-      <div class="topbar">
-        <h2>📅 طلبات الإجازة</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
-      </div>
+      <div class="panel">
 
-      <div id="leaveAdminList"></div>
-
-    </div>
-
-
-    <!-- ========== KPI ADMIN ========== -->
-
-    <div id="kpiPage" class="hidden">
-
-      <div class="topbar">
-        <h2>📊 KPI</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
-      </div>
-
-      <div id="kpiAdminList"></div>
-
-    </div>
-
-
-    <!-- ========== PENALTY ADMIN ========== -->
-
-    <div id="penaltyPage" class="hidden">
-
-      <div class="topbar">
-        <h2>⚠️ الجزاءات والمخالفات</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
-      </div>
-
-      <div class="card">
-
-        <h3>تسجيل مخالفة</h3>
+        <h3>🕘 تسجيل حضور / حالة يوم</h3>
 
         <label>الموظف</label>
-        <select id="penaltyEmployee"></select>
 
-        <label>نوع المخالفة</label>
+        <select id="attendanceEmployee">
+
+          ${
+            employees.map(e=>
+              `<option value="${e.code}">
+                ${e.code} - ${e.name}
+              </option>`
+            ).join("")
+          }
+
+        </select>
+
+        <label>التاريخ</label>
+
+        <input
+          type="date"
+          id="attendanceDate"
+          value="${new Date().toISOString().slice(0,10)}">
+
+        <label>وقت الحضور</label>
+
+        <input
+          type="time"
+          id="attendanceTime"
+          value="08:00">
+
+        <label>الحالة</label>
+
+        <select id="attendanceStatus">
+
+          <option>حضور</option>
+          <option>غياب</option>
+          <option>مرضي</option>
+          <option>عارضة</option>
+          <option>إجازة</option>
+
+        </select>
+
+        <label>هل يوجد تأخير؟</label>
+
+        <select id="attendanceLate">
+          <option value="no">لا</option>
+          <option value="yes">نعم</option>
+        </select>
+
+        <button
+          class="primary"
+          onclick="saveAttendance()">
+          حفظ الحالة
+        </button>
+
+      </div>
+
+      <div class="panel">
+
+        <h3>آخر التسجيلات</h3>
+
+        <table>
+
+          <tr>
+            <th>التاريخ</th>
+            <th>الموظف</th>
+            <th>الحالة</th>
+            <th>الوقت</th>
+            <th>تأخير</th>
+          </tr>
+
+          ${
+            attendance.slice(-20).reverse().map(a=>`
+
+              <tr>
+                <td>${a.date}</td>
+                <td>${employeeName(a.code)}</td>
+                <td>${a.status}</td>
+                <td>${a.time||"-"}</td>
+                <td>${a.late?"نعم":"لا"}</td>
+              </tr>
+
+            `).join("")
+          }
+
+        </table>
+
+      </div>
+
+    `;
+
+    return;
+  }
+
+
+  if(section==="penalties"){
+
+    box.innerHTML=`
+
+      <div class="panel">
+
+        <h3>⚠️ إضافة تأخير / جزاء</h3>
+
+        <label>الموظف</label>
+
+        <select id="penaltyEmployee">
+
+          ${
+            employees.map(e=>
+              `<option value="${e.code}">
+                ${e.code} - ${e.name}
+              </option>`
+            ).join("")
+          }
+
+        </select>
+
+        <label>النوع</label>
+
         <select id="penaltyType">
+          <option>تأخير</option>
           <option>تأخير من البريك</option>
-          <option>مخالفة الزي الرسمي</option>
-          <option>تأخير حضور</option>
-          <option>مخالفة سلامة</option>
-          <option>جزاء إداري</option>
+          <option>جزاء</option>
+          <option>مخالفة الزي</option>
           <option>مخالفة أخرى</option>
         </select>
 
+        <label>التاريخ</label>
+
+        <input
+          type="date"
+          id="penaltyDate"
+          value="${new Date().toISOString().slice(0,10)}">
+
         <label>التفاصيل</label>
-        <textarea id="penaltyDetails"
-          placeholder="اكتب تفاصيل المخالفة"></textarea>
 
-        <button class="btn danger" onclick="addPenalty()">
-          ⚠️ تسجيل المخالفة وإرسال إشعار
+        <textarea id="penaltyDetails"></textarea>
+
+        <button
+          class="primary"
+          onclick="savePenalty()">
+          حفظ وإرسال إشعار للموظف
         </button>
 
       </div>
 
-      <div id="penaltyList"></div>
+      <div class="panel">
 
-    </div>
+        <h3>السجل</h3>
 
+        <table>
 
-    <!-- ========== KAIZEN ADMIN ========== -->
+          <tr>
+            <th>التاريخ</th>
+            <th>الموظف</th>
+            <th>النوع</th>
+            <th>التفاصيل</th>
+          </tr>
 
-    <div id="kaizenAdminPage" class="hidden">
+          ${
+            penalties.slice().reverse().map(p=>`
 
-      <div class="topbar">
-        <h2>💡 Kaizen Ideas</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
+              <tr>
+                <td>${p.date}</td>
+                <td>${employeeName(p.code)}</td>
+                <td>${p.type}</td>
+                <td>${p.details}</td>
+              </tr>
+
+            `).join("")
+          }
+
+        </table>
+
       </div>
 
-      <div id="kaizenAdminList"></div>
+    `;
 
-    </div>
+    return;
+  }
 
 
-    <!-- ========== NOTIFICATIONS ========== -->
+  if(section==="leaveRequests"){
 
-    <div id="notificationPage" class="hidden">
+    box.innerHTML=`
 
-      <div class="topbar">
-        <h2>🔔 الإشعارات</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
+      <div class="panel">
+
+        <h3>📝 طلبات الإجازة</h3>
+
+        ${
+          leaves.length===0
+          ?
+          `<div class="empty">لا توجد طلبات إجازة</div>`
+          :
+          `
+          <table>
+
+            <tr>
+              <th>الموظف</th>
+              <th>من</th>
+              <th>إلى</th>
+              <th>النوع</th>
+              <th>السبب</th>
+              <th>الحالة</th>
+            </tr>
+
+            ${
+              leaves.slice().reverse().map((l,i)=>`
+
+                <tr>
+
+                  <td>${employeeName(l.code)}</td>
+
+                  <td>${l.from}</td>
+
+                  <td>${l.to}</td>
+
+                  <td>${l.type}</td>
+
+                  <td>${l.reason}</td>
+
+                  <td>
+
+                    ${
+                      l.status==="معلق"
+                      ?
+                      `
+                      <button
+                        class="success"
+                        onclick="approveLeave(${leaves.length-1-i})">
+                        موافقة
+                      </button>
+
+                      <button
+                        class="danger"
+                        onclick="rejectLeave(${leaves.length-1-i})">
+                        رفض
+                      </button>
+                      `
+                      :
+                      l.status
+                    }
+
+                  </td>
+
+                </tr>
+
+              `).join("")
+            }
+
+          </table>
+          `
+        }
+
       </div>
 
-      <div id="notificationList"></div>
+    `;
 
-    </div>
+    return;
+  }
 
 
-    <!-- ========== SETTINGS ========== -->
+  if(section==="kaizen"){
 
-    <div id="settingsPage" class="hidden">
+    box.innerHTML=`
 
-      <div class="topbar">
-        <h2>⚙️ الإعدادات</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
+      <div class="panel">
+
+        <h3>💡 أفكار Kaizen</h3>
+
+        ${
+          kaizens.length===0
+          ?
+          `<div class="empty">لا توجد أفكار حتى الآن</div>`
+          :
+          `
+          <table>
+
+            <tr>
+              <th>الموظف</th>
+              <th>الفكرة</th>
+              <th>التأثير</th>
+              <th>التاريخ</th>
+            </tr>
+
+            ${
+              kaizens.slice().reverse().map(k=>`
+
+                <tr>
+                  <td>${employeeName(k.code)}</td>
+                  <td>${k.idea}</td>
+                  <td>${k.impact}</td>
+                  <td>${k.date}</td>
+                </tr>
+
+              `).join("")
+            }
+
+          </table>
+          `
+        }
+
       </div>
 
-      <div class="card">
+    `;
 
-        <h3>تغيير كلمة مرور Admin</h3>
+    return;
+  }
+
+
+  if(section==="kpi"){
+
+    box.innerHTML=`
+
+      <div class="panel">
+
+        <h3>📊 KPI الموظفين</h3>
+
+        <table>
+
+          <tr>
+            <th>الكود</th>
+            <th>الموظف</th>
+            <th>التأخير</th>
+            <th>الجزاءات</th>
+            <th>KPI</th>
+          </tr>
+
+          ${
+            employees.map(e=>{
+
+              const late =
+                penalties.filter(
+                  p =>
+                  p.code===e.code &&
+                  (
+                    p.type==="تأخير" ||
+                    p.type==="تأخير من البريك"
+                  )
+                ).length;
+
+              const penalty =
+                penalties.filter(
+                  p =>
+                  p.code===e.code &&
+                  p.type.includes("جزاء")
+                ).length;
+
+              let kpi=100;
+
+              kpi -= late*2;
+              kpi -= penalty*5;
+
+              if(kpi<0)kpi=0;
+
+              return`
+
+                <tr>
+                  <td>${e.code}</td>
+                  <td>${e.name}</td>
+                  <td>${late}</td>
+                  <td>${penalty}</td>
+                  <td>${kpi}%</td>
+                </tr>
+
+              `;
+
+            }).join("")
+          }
+
+        </table>
+
+      </div>
+
+    `;
+
+    return;
+  }
+
+
+  if(section==="password"){
+
+    box.innerHTML=`
+
+      <div class="panel">
+
+        <h3>🔐 تغيير باسورد المشرف</h3>
+
+        <label>الباسورد الحالي</label>
 
         <input
-          id="adminOldPassword"
           type="password"
-          placeholder="كلمة المرور الحالية"
-        >
+          id="oldAdminPassword">
+
+        <label>الباسورد الجديد</label>
 
         <input
-          id="adminNewPassword"
           type="password"
-          placeholder="كلمة المرور الجديدة"
-        >
+          id="newAdminPassword">
 
-        <button class="btn" onclick="changeAdminPassword()">
-          🔐 تغيير كلمة المرور
+        <button
+          class="primary"
+          onclick="changeAdminPassword()">
+          تغيير الباسورد
         </button>
 
       </div>
 
-      <div class="card">
+    `;
 
-        <h3>إضافة مستخدم قراءة فقط</h3>
+  }
 
-        <input id="viewerCode" placeholder="الكود">
+}
 
-        <input id="viewerName" placeholder="الاسم">
 
-        <input
-          id="viewerPassword"
-          type="password"
-          placeholder="كلمة المرور"
-        >
+/* =========================
+   EMPLOYEES
+========================= */
 
-        <button class="btn success" onclick="addViewer()">
-          ➕ إضافة Viewer
-        </button>
+function addEmployee(){
+
+  const name =
+    document.getElementById("newName").value.trim();
+
+  const code =
+    document.getElementById("newCode").value.trim();
+
+  const password =
+    document.getElementById("newPassword").value;
+
+  const department =
+    document.getElementById("newDepartment").value.trim();
+
+
+  if(!name || !code || !password){
+
+    alert("اكتب اسم الموظف والكود والباسورد");
+
+    return;
+  }
+
+
+  if(
+    employees.some(
+      e=>e.code===code
+    )
+  ){
+
+    alert("الكود موجود بالفعل");
+
+    return;
+  }
+
+
+  employees.push({
+
+    name,
+    code,
+    password,
+    department
+
+  });
+
+
+  saveData();
+
+  alert(
+    "تم إضافة الموظف بنجاح"
+  );
+
+  showAdminSection("employees");
+
+  updateDashboard();
+
+}
+
+
+function deleteEmployee(code){
+
+  if(!confirm("هل تريد حذف الموظف؟"))return;
+
+  employees =
+    employees.filter(
+      e=>e.code!==code
+    );
+
+  saveData();
+
+  showAdminSection("employees");
+
+  updateDashboard();
+
+}
+
+
+function employeeName(code){
+
+  const e =
+    employees.find(
+      x=>x.code===code
+    );
+
+  return e ? e.name : code;
+
+}
+
+
+/* =========================
+   ATTENDANCE
+========================= */
+
+function saveAttendance(){
+
+  const code =
+    document.getElementById(
+      "attendanceEmployee"
+    ).value;
+
+  const date =
+    document.getElementById(
+      "attendanceDate"
+    ).value;
+
+  const time =
+    document.getElementById(
+      "attendanceTime"
+    ).value;
+
+  const status =
+    document.getElementById(
+      "attendanceStatus"
+    ).value;
+
+  const late =
+    document.getElementById(
+      "attendanceLate"
+    ).value==="yes";
+
+
+  attendance.push({
+
+    code,
+    date,
+    time,
+    status,
+    late
+
+  });
+
+
+  saveData();
+
+  alert("تم تسجيل الحالة");
+
+  showAdminSection("attendance");
+
+  updateDashboard();
+
+}
+
+
+/* =========================
+   PENALTY
+========================= */
+
+function savePenalty(){
+
+  const code =
+    document.getElementById(
+      "penaltyEmployee"
+    ).value;
+
+  const date =
+    document.getElementById(
+      "penaltyDate"
+    ).value;
+
+  const type =
+    document.getElementById(
+      "penaltyType"
+    ).value;
+
+  const details =
+    document.getElementById(
+      "penaltyDetails"
+    ).value;
+
+
+  penalties.push({
+
+    code,
+    date,
+    type,
+    details,
+    notification:true
+
+  });
+
+
+  saveData();
+
+  alert(
+    "تم تسجيلها وإرسال إشعار للموظف"
+  );
+
+  showAdminSection("penalties");
+
+}
+
+
+/* =========================
+   LEAVES
+========================= */
+
+function approveLeave(index){
+
+  leaves[index].status="موافق عليه";
+
+  saveData();
+
+  showAdminSection("leaveRequests");
+
+}
+
+
+function rejectLeave(index){
+
+  leaves[index].status="مرفوض";
+
+  saveData();
+
+  showAdminSection("leaveRequests");
+
+}
+
+
+/* =========================
+   ADMIN PASSWORD
+========================= */
+
+function changeAdminPassword(){
+
+  const oldPassword =
+    document.getElementById(
+      "oldAdminPassword"
+    ).value;
+
+  const newPassword =
+    document.getElementById(
+      "newAdminPassword"
+    ).value;
+
+
+  if(oldPassword!==admin.password){
+
+    alert("الباسورد الحالي غير صحيح");
+
+    return;
+  }
+
+
+  if(!newPassword){
+
+    alert("اكتب الباسورد الجديد");
+
+    return;
+  }
+
+
+  admin.password=newPassword;
+
+  localStorage.setItem(
+    "sw_admin",
+    JSON.stringify(admin)
+  );
+
+  alert("تم تغيير الباسورد بنجاح");
+
+}
+
+
+/* =========================
+   EMPLOYEE
+========================= */
+
+function loadEmployee(){
+
+  document.getElementById(
+    "employeeName"
+  ).innerText =
+    "👤 "+currentUser.name;
+
+  loadEmployeeNotifications();
+
+}
+
+
+function loadEmployeeNotifications(){
+
+  const box =
+    document.getElementById(
+      "employeeNotifications"
+    );
+
+  const myPenalties =
+    penalties.filter(
+      p=>p.code===currentUser.code
+    );
+
+  const myLeaves =
+    leaves.filter(
+      l =>
+      l.code===currentUser.code &&
+      l.status!=="مقروء"
+    );
+
+
+  let html="";
+
+
+  myPenalties.forEach(p=>{
+
+    html+=`
+
+      <div class="notice">
+
+        ⚠️ <b>${p.type}</b>
+
+        <br>
+
+        ${p.details||""}
+
+        <br>
+
+        <small>${p.date}</small>
 
       </div>
 
-    </div>
+    `;
+
+  });
 
 
-    <!-- ========== MY ATTENDANCE ========== -->
+  myLeaves.forEach(l=>{
 
-    <div id="myAttendancePage" class="hidden">
+    if(l.status!=="معلق"){
 
-      <div class="topbar">
-        <h2>🕘 حضوري</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
-      </div>
+      html+=`
 
-      <div id="myAttendanceList"></div>
+        <div class="notice">
 
-    </div>
+          📝 حالة طلب الإجازة:
+          <b>${l.status}</b>
 
-
-    <!-- ========== MY LEAVE ========== -->
-
-    <div id="myLeavePage" class="hidden">
-
-      <div class="topbar">
-        <h2>📅 إجازاتي</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
-      </div>
-
-      <div class="card">
-
-        <h3>طلب إجازة</h3>
-
-        <label>من</label>
-        <input id="leaveFrom" type="date">
-
-        <label>إلى</label>
-        <input id="leaveTo" type="date">
-
-        <label>السبب</label>
-        <textarea id="leaveReason"
-          placeholder="سبب الإجازة"></textarea>
-
-        <button class="btn" onclick="submitLeave()">
-          📤 إرسال طلب الإجازة
-        </button>
-
-      </div>
-
-      <div id="myLeaveList"></div>
-
-    </div>
-
-
-    <!-- ========== MY KPI ========== -->
-
-    <div id="myKpiPage" class="hidden">
-
-      <div class="topbar">
-        <h2>📊 KPI الخاص بي</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
-      </div>
-
-      <div class="card">
-
-        <h3 id="myKpiEmployeeName"></h3>
-
-        <div class="kpi-bar">
-          <div id="myKpiFill" class="kpi-fill"></div>
         </div>
 
-        <h2>
-          <span id="myKpiValue">0</span>%
-        </h2>
+      `;
 
-      </div>
+    }
+
+  });
+
+
+  if(!html){
+
+    html=
+      `<div class="empty">
+        لا توجد إشعارات جديدة
+      </div>`;
+  }
+
+
+  box.innerHTML=html;
+
+}
+
+
+/* =========================
+   EMPLOYEE ATTENDANCE
+========================= */
+
+function employeeAttendance(){
+
+  const today =
+    new Date().toISOString().slice(0,10);
+
+  const records =
+    attendance.filter(
+      a =>
+      a.code===currentUser.code &&
+      a.date===today
+    );
+
+
+  document.getElementById(
+    "employeeContent"
+  ).innerHTML=`
+
+    <div class="panel">
+
+      <h3>🕘 حالتي اليوم</h3>
+
+      ${
+        records.length
+        ?
+        records.map(a=>`
+
+          <p>
+            الحالة:
+            <b>${a.status}</b>
+          </p>
+
+          <p>
+            وقت الحضور:
+            <b>${a.time||"-"}</b>
+          </p>
+
+          <p>
+            التأخير:
+            <b>${a.late?"نعم":"لا"}</b>
+          </p>
+
+        `).join("")
+        :
+        `<div class="empty">
+          لم يتم تسجيل حالتك اليوم بعد.
+        </div>`
+      }
 
     </div>
 
+  `;
 
-    <!-- ========== MY PENALTIES ========== -->
+}
 
-    <div id="myPenaltyPage" class="hidden">
 
-      <div class="topbar">
-        <h2>⚠️ جزاءاتي</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
-      </div>
+/* =========================
+   EMPLOYEE LEAVE
+========================= */
 
-      <div id="myPenaltyList"></div>
+function employeeLeave(){
+
+  document.getElementById(
+    "employeeContent"
+  ).innerHTML=`
+
+    <div class="panel">
+
+      <h3>📝 تقديم طلب إجازة</h3>
+
+      <label>نوع الإجازة</label>
+
+      <select id="leaveType">
+
+        <option>سنوية</option>
+        <option>عارضة</option>
+        <option>مرضية</option>
+        <option>أخرى</option>
+
+      </select>
+
+      <label>من</label>
+
+      <input
+        type="date"
+        id="leaveFrom">
+
+      <label>إلى</label>
+
+      <input
+        type="date"
+        id="leaveTo">
+
+      <label>السبب</label>
+
+      <textarea id="leaveReason"></textarea>
+
+      <button
+        class="primary"
+        onclick="sendLeave()">
+        إرسال طلب الإجازة
+      </button>
 
     </div>
 
+    <div class="panel">
 
-    <!-- ========== MY KAIZEN ========== -->
+      <h3>طلبات الإجازة السابقة</h3>
 
-    <div id="myKaizenPage" class="hidden">
+      ${
+        leaves.filter(
+          l=>l.code===currentUser.code
+        ).map(l=>`
 
-      <div class="topbar">
-        <h2>💡 Kaizen</h2>
-        <button class="btn secondary small-btn" onclick="goHome()">
-          رجوع
-        </button>
-      </div>
+          <div class="notice">
 
-      <div class="card">
+            ${l.from} → ${l.to}
 
-        <h3>إضافة فكرة تحسين جديدة</h3>
+            <br>
 
-        <label>عنوان الفكرة</label>
+            ${l.type}
 
-        <input
-          id="kaizenTitle"
-          placeholder="مثال: تقليل وقت تجهيز الخط"
-        >
+            <br>
 
-        <label>شرح الفكرة</label>
+            الحالة:
+            <b>${l.status}</b>
 
-        <textarea
-          id="kaizenDescription"
-          placeholder="اشرح الفكرة بالتفصيل"
-        ></textarea>
+          </div>
 
-        <h3>تأثير الفكرة</h3>
+        `).join("")
+      }
 
-        <label class="check">
-          <input type="checkbox" class="kaizenImpact" value="الجودة">
+    </div>
+
+  `;
+
+}
+
+
+function sendLeave(){
+
+  const type =
+    document.getElementById(
+      "leaveType"
+    ).value;
+
+  const from =
+    document.getElementById(
+      "leaveFrom"
+    ).value;
+
+  const to =
+    document.getElementById(
+      "leaveTo"
+    ).value;
+
+  const reason =
+    document.getElementById(
+      "leaveReason"
+    ).value;
+
+
+  if(!from || !to){
+
+    alert("اختار تاريخ الإجازة");
+
+    return;
+  }
+
+
+  leaves.push({
+
+    code:currentUser.code,
+
+    type,
+
+    from,
+
+    to,
+
+    reason,
+
+    status:"معلق",
+
+    notification:true
+
+  });
+
+
+  saveData();
+
+  alert(
+    "تم إرسال طلب الإجازة للمشرف"
+  );
+
+  employeeLeave();
+
+}
+
+
+/* =========================
+   KAIZEN
+========================= */
+
+function employeeKaizen(){
+
+  document.getElementById(
+    "employeeContent"
+  ).innerHTML=`
+
+    <div class="panel">
+
+      <h3>💡 Kaizen - فكرة تحسين</h3>
+
+      <label>اكتب فكرتك أو اقتراح التحسين</label>
+
+      <textarea
+        id="kaizenIdea"
+        placeholder="اكتب الفكرة بالتفصيل..."></textarea>
+
+      <label>الفكرة ستؤثر على:</label>
+
+      <div class="kaizen-impact">
+
+        <label class="impact">
+          <input
+            type="radio"
+            name="impact"
+            value="الجودة">
           الجودة
         </label>
 
-        <label class="check">
-          <input type="checkbox" class="kaizenImpact" value="الإنتاج">
+        <label class="impact">
+          <input
+            type="radio"
+            name="impact"
+            value="الإنتاج">
           الإنتاج
-     
+        </label>
+
+        <label class="impact">
+          <input
+            type="radio"
+            name="impact"
+            value="السلامة">
+          السلامة
+        </label>
+
+        <label class="impact">
+          <input
+            type="radio"
+            name="impact"
+            value="الوقت">
+          الوقت
+        </label>
+
+        <label class="impact">
+          <input
+            type="radio"
+            name="impact"
+            value="التكلفة">
+          التكلفة
+        </label>
+
+        <label class="impact">
+          <input
+            type="radio"
+            name="impact"
+            value="الروح المعنوية">
+          الروح المعنوية
+        </label>
+
+        <label class="impact">
+          <input
+            type="radio"
+            name="impact"
+            value="إدارة اليوم">
+          إدارة اليوم
+        </label>
+
+      </div>
+
+      <button
+        class="primary"
+        onclick="sendKaizen()">
+        إرسال فكرة Kaizen
+      </button>
+
+    </div>
+
+    <div class="panel">
+
+      <h3>أفكاري السابقة</h3>
+
+      ${
+        kaizens.filter(
+          k=>k.code===currentUser.code
+        ).map(k=>`
+
+          <div class="notice">
+
+            💡 ${k.idea}
+
+            <br>
+
+            التأثير:
+            <b>${k.impact}</b>
+
+            <br>
+
+            <small>${k.date}</small>
+
+          </div>
+
+        `).join("")
+      }
+
+    </div>
+
+  `;
+
+}
+
+
+function sendKaizen(){
+
+  const idea =
+    document.getElementById(
+      "kaizenIdea"
+    ).value.trim();
+
+  const selected =
+    document.querySelector(
+      'input[name="impact"]:checked'
+    );
+
+
+  if(!idea){
+
+    alert("اكتب فكرة التحسين");
+
+    return;
+  }
+
+
+  if(!selected){
+
+    alert(
+      "اختار تأثير الفكرة"
+    );
+
+    return;
+  }
+
+
+  kaizens.push({
+
+    code:currentUser.code,
+
+    idea,
+
+    impact:selected.value,
+
+    date:new Date()
+      .toISOString()
+      .slice(0,10)
+
+  });
+
+
+  saveData();
+
+  alert(
+    "تم إرسال فكرة Kaizen بنجاح"
+  );
+
+  employeeKaizen();
+
+}
+
+
+/* =========================
+   EMPLOYEE PASSWORD
+========================= */
+
+function employeePassword(){
+
+  document.getElementById(
+    "employeeContent"
+  ).innerHTML=`
+
+    <div class="panel">
+
+      <h3>🔐 تغيير كلمة المرور</h3>
+
+      <label>الباسورد الحالي</label>
+
+      <input
+        type="password"
+        id="oldEmployeePassword">
+
+      <label>الباسورد الجديد</label>
+
+      <input
+        type="password"
+        id="newEmployeePassword">
+
+      <button
+        class="primary"
+        onclick="changeEmployeePassword()">
+        تغيير الباسورد
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+function changeEmployeePassword(){
+
+  const oldPassword =
+    document.getElementById(
+      "oldEmployeePassword"
+    ).value;
+
+  const newPassword =
+    document.getElementById(
+      "newEmployeePassword"
+    ).value;
+
+
+  const employee =
+    employees.find(
+      e=>e.code===currentUser.code
+    );
+
+
+  if(oldPassword!==employee.password){
+
+    alert("الباسورد الحالي غير صحيح");
+
+    return;
+  }
+
+
+  if(!newPassword){
+
+    alert("اكتب الباسورد الجديد");
+
+    return;
+  }
+
+
+  employee.password=newPassword;
+
+  saveData();
+
+  alert(
+    "تم تغيير الباسورد بنجاح"
+  );
+
+}
+
+
+/* =========================
+   VIEWER
+========================= */
+
+function loadViewer(){
+
+  const today =
+    new Date().toISOString().slice(0,10);
+
+  document.getElementById(
+    "viewerContent"
+  ).innerHTML=`
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-title">
+          الموظفين
+        </div>
+
+        <div class="number">
+          ${employees.length}
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-title">
+          الحضور اليوم
+        </div>
+
+        <div class="number">
+
+          ${
+            attendance.filter(
+              a =>
+              a.date===today &&
+              a.status==="حضور"
+            ).length
+          }
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-title">
+          التأخير
+        </div>
+
+        <div class="number">
+
+          ${
+            attendance.filter(
+              a =>
+              a.date===today &&
+              a.late
+            ).length
+          }
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="panel">
+
+      <h3>الحضور والانصراف</h3>
+
+      <table>
+
+        <tr>
+          <th>التاريخ</th>
+          <th>الموظف</th>
+          <th>الحالة</th>
+          <th>الوقت</th>
+          <th>تأخير</th>
+        </tr>
+
+        ${
+          attendance.slice().reverse().map(a=>`
+
+            <tr>
+
+              <td>${a.date}</td>
+
+              <td>${employeeName(a.code)}</td>
+
+              <td>${a.status}</td>
+
+              <td>${a.time||"-"}</td>
+
+              <td>${a.late?"نعم":"لا"}</td>
+
+            </tr>
+
+          `).join("")
+        }
+
+      </table>
+
+    </div>
+
+
+    <div class="panel">
+
+      <h3>الجزاءات والتأخيرات</h3>
+
+      <table>
+
+        <tr>
+          <th>التاريخ</th>
+          <th>الموظف</th>
+          <th>النوع</th>
+          <th>التفاصيل</th>
+        </tr>
+
+        ${
+          penalties.slice().reverse().map(p=>`
+
+            <tr>
+
+              <td>${p.date}</td>
+
+              <td>${employeeName(p.code)}</td>
+
+              <td>${p.type}</td>
+
+              <td>${p.details}</td>
+
+            </tr>
+
+          `).join("")
+        }
+
+      </table>
+
+    </div>
+
+
+    <div class="panel">
+
+      <h3>📊 KPI</h3>
+
+      <table>
+
+        <tr>
+          <th>الموظف</th>
+          <th>التأخير</th>
+          <th>الجزاءات</th>
+          <th>KPI</th>
+        </tr>
+
+        ${
+          employees.map(e=>{
+
+            const late =
+              penalties.filter(
+                p =>
+                p.code===e.code &&
+                (
+                  p.type==="تأخير" ||
+                  p.type==="تأخير من البريك"
+                )
+              ).length;
+
+            const penalty =
+              penalties.filter(
+                p =>
+                p.code===e.code &&
+                p.type.includes("جزاء")
+              ).length;
+
+            let kpi=100;
+
+            kpi-=late*2;
+            kpi-=penalty*5;
+
+            if(kpi<0)kpi=0;
+
+            return`
+
+              <tr>
+
+                <td>${e.name}</td>
+                <td>${late}</td>
+                <td>${penalty}</td>
+                <td>${kpi}%</td>
+
+              </tr>
+
+            `;
+
+          }).join("")
+        }
+
+      </table>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+document
+  .getElementById("loginType")
+  .addEventListener("change",function(){
+
+    const type=this.value;
+
+    document
+      .getElementById("codeLabel")
+      .innerText =
+        type==="employee"
+        ? "كود الموظف"
+        : "كود الدخول";
+
+  });
+
+</script>
+
+</body>
+</html>
