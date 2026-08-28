@@ -1,40 +1,1245 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#075BFF">
+<title>Signify Workforce</title>
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<style>
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:#f4f6fa;color:#172033}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
 
-  <meta name="theme-color"
-        content="#075BFF">
+.header{
+background:#075BFF;color:white;padding:22px 18px;
+border-radius:0 0 25px 25px;
+box-shadow:0 4px 15px #0002
+}
+.header h1{margin:0;font-size:25px}
+.header p{margin:7px 0 0;opacity:.9}
 
-  <title>Signify Workforce</title>
+.container{padding:18px;max-width:1000px;margin:auto}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+.card{
+background:white;border-radius:18px;padding:18px;
+margin-bottom:14px;
+box-shadow:0 3px 15px #0000000d
+}
 
-    body {
-      margin: 0;
-      background: #f5f7fa;
-      color: #172033;
-    }
+.login{
+max-width:430px;margin:70px auto;padding:25px
+}
 
-    .header {
-      background: #075BFF;
-      color: white;
-      padding: 25px 20px;
-      border-radius: 0 0 25px 25px;
-    }
+.logo{
+width:75px;height:75px;border-radius:22px;
+background:#075BFF;color:white;
+display:flex;align-items:center;justify-content:center;
+font-size:35px;margin:auto auto 15px
+}
 
-    .header h1 {
-      margin: 0;
-      font-size: 25px;
-    }
+input,select,textarea{
+width:100%;padding:13px;margin:7px 0 12px;
+border:1px solid #d8dde8;border-radius:12px;
+background:white
+}
 
+.btn{
+width:100%;padding:14px;border:0;border-radius:13px;
+background:#075BFF;color:white;margin:5px 0
+}
+
+.btn.secondary{background:white;color:#075BFF;border:1px solid #075BFF}
+.btn.danger{background:#d93025}
+.btn.success{background:#188038}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px
+}
+
+.stat{
+background:white;border-radius:17px;padding:18px;
+box-shadow:0 3px 12px #0000000b
+}
+
+.stat-title{font-size:14px;color:#667085}
+.stat-number{font-size:29px;font-weight:bold;margin-top:8px}
+
+.menu{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;margin-top:15px
+}
+
+.menu button{
+padding:18px;border:0;border-radius:16px;
+background:white;box-shadow:0 3px 12px #0000000b;
+color:#172033
+}
+
+.hidden{display:none!important}
+
+.topbar{
+display:flex;justify-content:space-between;
+align-items:center;margin-bottom:15px
+}
+
+.back{width:auto;padding:10px 16px}
+
+.badge{
+display:inline-block;padding:6px 10px;
+border-radius:20px;background:#eef3ff;color:#075BFF;
+font-size:13px
+}
+
+.row{
+display:flex;align-items:center;
+justify-content:space-between;
+gap:10px;padding:12px 0;
+border-bottom:1px solid #eee
+}
+
+.notice{
+background:#fff8e1;border-right:4px solid #f9ab00;
+padding:13px;border-radius:10px;margin-bottom:10px
+}
+
+.kpi{
+height:14px;background:#e5e7eb;border-radius:20px;
+overflow:hidden;margin:10px 0
+}
+
+.kpi div{
+height:100%;background:#075BFF;width:91%
+}
+
+@media(min-width:700px){
+.grid{grid-template-columns:repeat(4,1fr)}
+.menu{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<section id="loginPage">
+
+<div class="login card">
+
+<div class="logo">S</div>
+
+<h1 style="text-align:center">Signify Workforce</h1>
+
+<p style="text-align:center;color:#667085">
+نظام إدارة الموظفين والحضور والـ KPI
+</p>
+
+<label>الكود / اسم المستخدم</label>
+<input id="loginCode" placeholder="مثال: EMP001">
+
+<label>كلمة المرور</label>
+<input id="loginPassword" type="password" placeholder="كلمة المرور">
+
+<button class="btn" onclick="login()">دخول</button>
+
+<div id="loginError"
+style="color:#d93025;text-align:center;margin-top:10px">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- APP -->
+<section id="appPage" class="hidden">
+
+<div class="header">
+<h1>Signify Workforce</h1>
+<p id="welcome"></p>
+</div>
+
+<div class="container">
+
+<!-- DASHBOARD -->
+
+<div id="dashboard">
+
+<div class="topbar">
+<h2>لوحة القيادة</h2>
+<span class="badge" id="roleBadge"></span>
+</div>
+
+<div class="grid">
+
+<div class="stat">
+<div class="stat-title">👥 الموظفين</div>
+<div class="stat-number" id="employeeCount">0</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">✅ الحضور</div>
+<div class="stat-number" id="presentCount">0</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">❌ الغياب</div>
+<div class="stat-number" id="absentCount">0</div>
+</div>
+
+<div class="stat">
+<div class="stat-title">⏰ المتأخرين</div>
+<div class="stat-number" id="lateCount">0</div>
+</div>
+
+</div>
+
+<div class="card">
+<h3>متوسط KPI</h3>
+<div class="kpi"><div id="kpiBar"></div></div>
+<strong id="kpiValue">91%</strong>
+</div>
+
+<div class="menu">
+
+<button onclick="showPage('attendance')">
+🕘<br>الحضور والانصراف
+</button>
+
+<button onclick="showPage('employees')">
+👥<br>الموظفين
+</button>
+
+<button onclick="showPage('leave')">
+📅<br>طلبات الإجازة
+</button>
+
+<button onclick="showPage('kpi')">
+📊<br>KPI
+</button>
+
+<button onclick="showPage('penalties')">
+⚠️<br>الجزاءات والمخالفات
+</button>
+
+<button onclick="showPage('notifications')">
+🔔<br>الإشعارات
+</button>
+
+</div>
+
+<div class="card" style="margin-top:15px">
+<button class="btn danger" onclick="logout()">تسجيل الخروج</button>
+</div>
+
+</div>
+
+
+<!-- EMPLOYEES -->
+
+<div id="employees" class="hidden">
+
+<div class="topbar">
+<h2>الموظفين</h2>
+<button class="btn back" onclick="showPage('dashboard')">رجوع</button>
+</div>
+
+<div id="employeeAddArea"></div>
+
+<div id="employeesList"></div>
+
+</div>
+
+
+<!-- ATTENDANCE -->
+
+<div id="attendance" class="hidden">
+
+<div class="topbar">
+<h2>الحضور والانصراف</h2>
+<button class="btn back" onclick="showPage('dashboard')">رجوع</button>
+</div>
+
+<div id="attendanceArea"></div>
+
+</div>
+
+
+<!-- LEAVE -->
+
+<div id="leave" class="hidden">
+
+<div class="topbar">
+<h2>طلبات الإجازة</h2>
+<button class="btn back" onclick="showPage('dashboard')">رجوع</button>
+</div>
+
+<div id="leaveArea"></div>
+
+</div>
+
+
+<!-- KPI -->
+
+<div id="kpi" class="hidden">
+
+<div class="topbar">
+<h2>تقييم KPI</h2>
+<button class="btn back" onclick="showPage('dashboard')">رجوع</button>
+</div>
+
+<div id="kpiArea"></div>
+
+</div>
+
+
+<!-- PENALTIES -->
+
+<div id="penalties" class="hidden">
+
+<div class="topbar">
+<h2>الجزاءات والمخالفات</h2>
+<button class="btn back" onclick="showPage('dashboard')">رجوع</button>
+</div>
+
+<div id="penaltyArea"></div>
+
+</div>
+
+
+<!-- NOTIFICATIONS -->
+
+<div id="notifications" class="hidden">
+
+<div class="topbar">
+<h2>الإشعارات</h2>
+<button class="btn back" onclick="showPage('dashboard')">رجوع</button>
+</div>
+
+<div id="notificationArea"></div>
+
+</div>
+
+</div>
+</section>
+
+
+<script>
+
+let currentUser=null;
+
+let employees=JSON.parse(
+localStorage.getItem("employees") || "[]"
+);
+
+let attendance=JSON.parse(
+localStorage.getItem("attendance") || "[]"
+);
+
+let leaves=JSON.parse(
+localStorage.getItem("leaves") || "[]"
+);
+
+let penalties=JSON.parse(
+localStorage.getItem("penalties") || "[]"
+);
+
+let notifications=JSON.parse(
+localStorage.getItem("notifications") || "[]"
+);
+
+
+function save(){
+
+localStorage.setItem(
+"employees",JSON.stringify(employees)
+);
+
+localStorage.setItem(
+"attendance",JSON.stringify(attendance)
+);
+
+localStorage.setItem(
+"leaves",JSON.stringify(leaves)
+);
+
+localStorage.setItem(
+"penalties",JSON.stringify(penalties)
+);
+
+localStorage.setItem(
+"notifications",JSON.stringify(notifications)
+);
+
+}
+
+
+function login(){
+
+const code=document.getElementById("loginCode").value.trim();
+const password=document.getElementById("loginPassword").value;
+
+let user=null;
+
+/*
+الحسابات التجريبية:
+
+ADMIN / 1234
+HR / 1234
+SUP / 1234
+
+الموظفين يتم إنشاؤهم من شاشة الموظفين.
+*/
+
+if(code==="ADMIN" && password==="1234"){
+user={
+code:"ADMIN",
+name:"Administrator",
+role:"Admin"
+};
+}
+
+else if(code==="HR" && password==="1234"){
+user={
+code:"HR",
+name:"HR",
+role:"HR"
+};
+}
+
+else if(code==="SUP" && password==="1234"){
+user={
+code:"SUP",
+name:"Production Supervisor",
+role:"Supervisor"
+};
+}
+
+else{
+
+user=employees.find(
+e=>e.code===code && e.password===password
+);
+
+}
+
+if(!user){
+
+document.getElementById("loginError").innerText=
+"الكود أو كلمة المرور غير صحيحة";
+
+return;
+
+}
+
+currentUser=user;
+
+document.getElementById("loginPage")
+.classList.add("hidden");
+
+document.getElementById("appPage")
+.classList.remove("hidden");
+
+document.getElementById("welcome").innerText=
+"مرحبًا، "+user.name;
+
+document.getElementById("roleBadge").innerText=
+user.role;
+
+showPage("dashboard");
+
+}
+
+
+function logout(){
+
+currentUser=null;
+
+document.getElementById("appPage")
+.classList.add("hidden");
+
+document.getElementById("loginPage")
+.classList.remove("hidden");
+
+}
+
+
+function showPage(page){
+
+const pages=[
+"dashboard",
+"employees",
+"attendance",
+"leave",
+"kpi",
+"penalties",
+"notifications"
+];
+
+pages.forEach(p=>{
+document.getElementById(p)
+.classList.add("hidden");
+});
+
+document.getElementById(page)
+.classList.remove("hidden");
+
+if(page==="dashboard")renderDashboard();
+if(page==="employees")renderEmployees();
+if(page==="attendance")renderAttendance();
+if(page==="leave")renderLeaves();
+if(page==="kpi")renderKPI();
+if(page==="penalties")renderPenalties();
+if(page==="notifications")renderNotifications();
+
+}
+
+
+function renderDashboard(){
+
+document.getElementById("employeeCount")
+.innerText=employees.length;
+
+let today=new Date().toISOString().slice(0,10);
+
+document.getElementById("presentCount")
+.innerText=attendance.filter(
+a=>a.date===today && a.status==="حضور"
+).length;
+
+document.getElementById("absentCount")
+.innerText=attendance.filter(
+a=>a.date===today && a.status==="غياب"
+).length;
+
+document.getElementById("lateCount")
+.innerText=attendance.filter(
+a=>a.date===today && a.late>0
+).length;
+
+}
+
+
+function renderEmployees(){
+
+const addArea=document.getElementById("employeeAddArea");
+
+if(currentUser.role==="Admin" ||
+currentUser.role==="Supervisor"){
+
+addArea.innerHTML=`
+
+<div class="card">
+
+<h3>إضافة موظف</h3>
+
+<input id="newCode" placeholder="الكود الوظيفي">
+
+<input id="newName" placeholder="اسم الموظف">
+
+<input id="newPassword" placeholder="كلمة المرور">
+
+<input id="newDept" placeholder="القسم">
+
+<input id="newPosition" placeholder="الوظيفة">
+
+<button class="btn success"
+onclick="addEmployee()">
+حفظ الموظف
+</button>
+
+</div>
+
+`;
+
+}else{
+
+addArea.innerHTML="";
+
+}
+
+
+const list=document.getElementById("employeesList");
+
+if(employees.length===0){
+
+list.innerHTML=`
+<div class="card">
+لا يوجد موظفين حتى الآن.
+</div>
+`;
+
+return;
+
+}
+
+list.innerHTML=employees.map(e=>`
+
+<div class="card">
+
+<div class="row">
+
+<div>
+
+<strong>${e.name}</strong>
+
+<br>
+
+<small>
+${e.code} — ${e.department || "بدون قسم"}
+</small>
+
+</div>
+
+<span class="badge">
+${e.position || "موظف"}
+</span>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+function addEmployee(){
+
+const code=document.getElementById("newCode").value.trim();
+const name=document.getElementById("newName").value.trim();
+const password=document.getElementById("newPassword").value.trim();
+
+if(!code || !name || !password){
+
+alert("اكتب الكود والاسم وكلمة المرور");
+
+return;
+
+}
+
+if(employees.some(e=>e.code===code)){
+
+alert("الكود مستخدم بالفعل");
+
+return;
+
+}
+
+employees.push({
+
+id:Date.now(),
+code,
+name,
+password,
+department:document.getElementById("newDept").value,
+position:document.getElementById("newPosition").value
+
+});
+
+save();
+
+alert("تم إضافة الموظف بنجاح");
+
+renderEmployees();
+
+}
+
+
+function renderAttendance(){
+
+const area=document.getElementById("attendanceArea");
+
+let list=employees;
+
+if(currentUser.role==="Employee"){
+
+list=employees.filter(
+e=>e.code===currentUser.code
+);
+
+}
+
+if(list.length===0){
+
+area.innerHTML=
+`<div class="card">لا يوجد موظفين.</div>`;
+
+return;
+
+}
+
+area.innerHTML=list.map(e=>`
+
+<div class="card">
+
+<strong>${e.name}</strong>
+
+<br>
+
+<small>${e.code}</small>
+
+<br><br>
+
+<button class="btn success"
+onclick="markAttendance('${e.code}','حضور')">
+✅ حضور
+</button>
+
+<button class="btn secondary"
+onclick="markAttendance('${e.code}','غياب')">
+❌ غياب
+</button>
+
+<button class="btn secondary"
+onclick="markAttendance('${e.code}','مرضي')">
+🤒 مرضي
+</button>
+
+<button class="btn secondary"
+onclick="markAttendance('${e.code}','عارضة')">
+📝 عارضة
+</button>
+
+<button class="btn secondary"
+onclick="markAttendance('${e.code}','إجازة')">
+🏖️ إجازة
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+function markAttendance(code,status){
+
+const employee=employees.find(
+e=>e.code===code
+);
+
+if(!employee)return;
+
+const now=new Date();
+
+const date=now.toISOString().slice(0,10);
+
+const time=
+now.getHours().toString().padStart(2,"0")
++":"+now.getMinutes().toString().padStart(2,"0");
+
+let late=0;
+
+/*
+وقت بداية افتراضي 08:00
+*/
+
+if(status==="حضور"){
+
+const start=8*60;
+
+const current=now.getHours()*60+now.getMinutes();
+
+late=Math.max(0,current-start);
+
+}
+
+attendance.push({
+
+id:Date.now(),
+employeeCode:code,
+date,
+time,
+status,
+late
+
+});
+
+save();
+
+if(late>0){
+
+addNotification(
+code,
+"تم تسجيل تأخير عليك: "+late+" دقيقة"
+);
+
+}
+
+alert(
+"تم تسجيل "+status+
+(employee.name ? " للموظف "+employee.name : "")
+);
+
+renderDashboard();
+
+}
+
+
+function renderLeaves(){
+
+const area=document.getElementById("leaveArea");
+
+if(currentUser.role==="Employee"){
+
+area.innerHTML=`
+
+<div class="card">
+
+<h3>تقديم طلب إجازة</h3>
+
+<label>من</label>
+<input id="leaveFrom" type="date">
+
+<label>إلى</label>
+<input id="leaveTo" type="date">
+
+<label>السبب</label>
+<textarea id="leaveReason"
+placeholder="سبب الإجازة"></textarea>
+
+<button class="btn"
+onclick="submitLeave()">
+إرسال الطلب
+</button>
+
+</div>
+
+`;
+
+}
+
+if(currentUser.role==="Admin" ||
+currentUser.role==="Supervisor"){
+
+area.innerHTML+=`
+
+<div class="card">
+
+<h3>طلبات الإجازة</h3>
+
+${leaves.length===0
+?"لا توجد طلبات."
+:leaves.map((l,i)=>`
+
+<div class="row">
+
+<div>
+<strong>${l.employeeName}</strong>
+<br>
+${l.from} → ${l.to}
+<br>
+<small>${l.reason}</small>
+</div>
+
+<div>
+
+<span class="badge">
+${l.status}
+</span>
+
+<br><br>
+
+<button class="btn success"
+onclick="approveLeave(${i})">
+موافقة
+</button>
+
+<button class="btn danger"
+onclick="rejectLeave(${i})">
+رفض
+</button>
+
+</div>
+
+</div>
+
+`).join("")}
+
+</div>
+
+`;
+
+}
+
+if(currentUser.role==="HR"){
+
+area.innerHTML=`
+
+<div class="card">
+
+<h3>قراءة طلبات الإجازة</h3>
+
+${leaves.length===0
+?"لا توجد طلبات."
+:leaves.map(l=>`
+
+<div class="row">
+
+<div>
+<strong>${l.employeeName}</strong>
+<br>
+${l.from} → ${l.to}
+</div>
+
+<span class="badge">${l.status}</span>
+
+</div>
+
+`).join("")}
+
+</div>
+
+`;
+
+}
+
+}
+
+
+function submitLeave(){
+
+const employee=employees.find(
+e=>e.code===currentUser.code
+);
+
+if(!employee)return;
+
+const request={
+
+id:Date.now(),
+employeeCode:currentUser.code,
+employeeName:employee.name,
+from:document.getElementById("leaveFrom").value,
+to:document.getElementById("leaveTo").value,
+reason:document.getElementById("leaveReason").value,
+status:"قيد المراجعة"
+
+};
+
+leaves.push(request);
+
+notifications.push({
+
+id:Date.now()+1,
+target:"ADMIN",
+text:"طلب إجازة جديد من "+employee.name,
+date:new Date().toLocaleString("ar-EG"),
+read:false
+
+});
+
+save();
+
+alert("تم إرسال طلب الإجازة");
+
+renderLeaves();
+
+}
+
+
+function approveLeave(index){
+
+leaves[index].status="مقبول";
+
+addNotification(
+leaves[index].employeeCode,
+"تمت الموافقة على طلب الإجازة"
+);
+
+save();
+
+renderLeaves();
+
+}
+
+
+function rejectLeave(index){
+
+leaves[index].status="مرفوض";
+
+addNotification(
+leaves[index].employeeCode,
+"تم رفض طلب الإجازة"
+);
+
+save();
+
+renderLeaves();
+
+}
+
+
+function renderKPI(){
+
+const area=document.getElementById("kpiArea");
+
+let list=employees;
+
+if(currentUser.role==="Employee"){
+
+list=employees.filter(
+e=>e.code===currentUser.code
+);
+
+}
+
+if(currentUser.role==="HR" ||
+currentUser.role==="Viewer"){
+
+list=employees;
+
+}
+
+area.innerHTML=list.map(e=>`
+
+<div class="card">
+
+<strong>${e.name}</strong>
+
+<br><br>
+
+الحضور والانضباط
+
+<div class="kpi">
+<div style="width:91%"></div>
+</div>
+
+<strong>91%</strong>
+
+<br><br>
+
+<a>
+تفاصيل KPI
+</a>
+
+</div>
+
+`).join("");
+
+}
+
+
+function renderPenalties(){
+
+const area=document.getElementById("penaltyArea");
+
+let list=penalties;
+
+if(currentUser.role==="Employee"){
+
+list=penalties.filter(
+p=>p.employeeCode===currentUser.code
+);
+
+}
+
+if(currentUser.role==="Admin" ||
+currentUser.role==="Supervisor"){
+
+area.innerHTML=`
+
+<div class="card">
+
+<h3>تسجيل مخالفة / جزاء</h3>
+
+<select id="penaltyEmployee">
+
+${employees.map(e=>
+`<option value="${e.code}">
+${e.name}
+</option>`
+).join("")}
+
+</select>
+
+<select id="penaltyType">
+
+<option>تأخير من البريك</option>
+<option>مخالفة الزي الرسمي</option>
+<option>تأخير حضور</option>
+<option>مخالفة سلامة</option>
+<option>جزاء إداري</option>
+<option>مخالفة أخرى</option>
+
+</select>
+
+<textarea id="penaltyNote"
+placeholder="التفاصيل"></textarea>
+
+<button class="btn danger"
+onclick="addPenalty()">
+تسجيل المخالفة
+</button>
+
+</div>
+
+`;
+
+}
+
+area.innerHTML+=`
+
+<div class="card">
+
+<h3>السجل</h3>
+
+${list.length===0
+?"لا توجد مخالفات."
+:list.map(p=>`
+
+<div class="notice">
+
+<strong>${p.employeeName}</strong>
+
+<br>
+
+${p.type}
+
+<br>
+
+<small>${p.note}</small>
+
+<br>
+
+<small>${p.date}</small>
+
+</div>
+
+`).join("")}
+
+</div>
+
+`;
+
+}
+
+
+function addPenalty(){
+
+const code=document.getElementById(
+"penaltyEmployee"
+).value;
+
+const employee=employees.find(
+e=>e.code===code
+);
+
+const type=document.getElementById(
+"penaltyType"
+).value;
+
+const note=document.getElementById(
+"penaltyNote"
+).value;
+
+penalties.push({
+
+id:Date.now(),
+employeeCode:code,
+employeeName:employee.name,
+type,
+note,
+date:new Date().toLocaleString("ar-EG")
+
+});
+
+addNotification(
+code,
+"تم تسجيل "+type+" عليك"
+);
+
+save();
+
+alert("تم تسجيل المخالفة وإرسال إشعار للموظف");
+
+renderPenalties();
+
+}
+
+
+function addNotification(target,text){
+
+notifications.push({
+
+id:Date.now()+Math.random(),
+target,
+text,
+date:new Date().toLocaleString("ar-EG"),
+read:false
+
+});
+
+save();
+
+}
+
+
+function renderNotifications(){
+
+const area=document.getElementById(
+"notificationArea"
+);
+
+let list=notifications;
+
+if(currentUser.role==="Employee"){
+
+list=notifications.filter(
+n=>n.target===currentUser.code
+);
+
+}
+
+else if(currentUser.role!=="Admin"){
+
+list=notifications.filter(
+n=>n.target===currentUser.code ||
+n.target==="ALL"
+);
+
+}
+
+if(list.length===0){
+
+area.innerHTML=`
+<div class="card">
+لا توجد إشعارات جديدة.
+</div>
+`;
+
+return;
+
+}
+
+area.innerHTML=list.reverse().map(n=>`
+
+<div class="notice">
+
+🔔 <strong>${n.text}</strong>
+
+<br>
+
+<small>${n.date}</small>
+
+</div>
+
+`).join("");
+
+}
+
+
+renderDashboard();
+
+</script>
+
+</body>
+  </html>
     .header p {
       margin: 8px 0 0;
       opacity: .9;
