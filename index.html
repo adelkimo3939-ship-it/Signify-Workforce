@@ -147,6 +147,14 @@
     </button>
 
   </div>
-
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(() => console.log('Signify Workforce Offline Ready'))
+        .catch(error => console.log('Offline Error:', error));
+    });
+  }
+      </script>
 </body>
     </html>
